@@ -1,0 +1,5 @@
+export const BLACK = '#45454d'
+export const PINK = '#fc7fb2'
+export const LIGHT_RED = '#ffd5d5'
+export const LIGHT_ORANGE = '#fff1e9'
+export const LIGHT_DARK = '#37474F'
