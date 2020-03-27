@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Elsie|Montserrat|Lora&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +7,59 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #FFF;
+  font-size: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  scroll-behavior: smooth;
+}
+
+#root{
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.high_class_text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: x-large;
+  line-height: 1.25;
+}
+
+.content_text {
+  font-family: 'Lora', serif;
+  text-decoration: 'none';
+  color: #000;
+  font-size: large;
+  margin: auto;
+}
+
+h1 {
+  font-size: 2em;
+  /* 2x body copy size = 32px */
+  line-height: 1.25;
+  /* 45px / 36px */
+}
+
+h2 {
+  font-size: 1.625em;
+  /* 1.625x body copy size = 26px */
+  line-height: 1.15384615;
+  /* 30px / 26px */
+}
+
+body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2, h3, h4, h5, h6 {
+  font-size-adjust: 0.5;
+}
+
+a {
+  text-decoration: none;
+}
+
+#controls{
+  margin: 4px;
+}
+
+#controls:hover {
+  cursor: pointer;
 }

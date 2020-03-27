@@ -13,30 +13,18 @@ class Footer extends Component {
                 <Grid.Column>
 
                     <Grid.Row style={{marginBottom: 10}}>
-                      <a href="#header">
-                        <img alt="website logo" style={{borderRadius: 8}} src={require("../assets/logo.jpg")} />
-                      </a>
+                      {this._getImageLogo()}
                     </Grid.Row>
 
                     <Grid.Column centered="true" style={{marginBottom: 20}}>
-                      <div>
-                          <a href="#faFacebook">
-                            <FontAwesomeIcon style={{"color":"#3b5998"}} icon={faFacebook} fixedWidth size="2x"  />
-                          </a>
-                          <a href="#faInstagram">
-                            <FontAwesomeIcon style={{"color":"#3f729b"}} icon={faInstagram} fixedWidth size="2x"  />
-                          </a>
-                          <a href="#faWhatsapp">
-                            <FontAwesomeIcon style={{"color":"green"}} icon={faWhatsapp} fixedWidth size="2x"  />
-                          </a>
-                      </div>
+                      {this._getSocialMediaBrands()}
                     </Grid.Column>
 
-                    <Divider style={{margin: 'auto', maxWidth: '40%', marginBottom: 20}}/>
+                    <Divider style={{margin: 'auto', marginBottom: 20}}/>
                 
                     <Grid.Column style={{minWidth:'100%', margin:'auto'}}>
                       <p className="content_text" style={bottomInfoStyle}>
-                          Copyright © {new Date().getFullYear()} - <i>El Patron Celebraciones</i> derechos reservados.
+                          Copyright © {new Date().getFullYear()} - <i>El Patron Celebraciones</i>.
                       </p>
                     </Grid.Column>
 
@@ -45,10 +33,34 @@ class Footer extends Component {
         </div>
     )
    }
+
+   _getImageLogo(){
+     return (
+      <a href="#header">
+        <img alt="website logo" style={{borderRadius: 8}} src={require("../assets/logo.jpg")} />
+      </a>
+     );
+   }
+
+   _getSocialMediaBrands(){
+     return (
+      <div>
+        <a href="#faFacebook">
+          <FontAwesomeIcon style={{"color":"#3b5998"}} icon={faFacebook} fixedWidth size="2x"  />
+        </a>
+        <a href="#faInstagram">
+          <FontAwesomeIcon style={{"color":"#3f729b"}} icon={faInstagram} fixedWidth size="2x"  />
+        </a>
+        <a href="#faWhatsapp">
+          <FontAwesomeIcon style={{"color":"green"}} icon={faWhatsapp} fixedWidth size="2x"  />
+        </a>
+      </div>
+     );
+   }
 }
 
 const navbar = {
-    minHeight: 300
+    minHeight: 200
 }
 
 const bottomInfoStyle = {
