@@ -2,8 +2,6 @@ import React, {Component} from 'react'
 import { 
   Divider, 
   Menu, 
-  Responsive,
-  Segment,
   Container
 } from 'semantic-ui-react' 
 
@@ -11,13 +9,12 @@ class Header extends Component {
 
   render(){
     return (
-    <Responsive minWidth={Responsive.onlyMobile.minWidth}>
-      <Segment textAlign='center' style={{ minHeight: 700, padding: '1em 0em' }} vertical>
+    <span>
         <img alt="website logo" src={require("../assets/logo.jpg")}/>
         <Divider />
         {this._getMenu()}
-      </Segment>
-    </Responsive>)
+      
+    </span>)
   }
 
   _getMenu(){
