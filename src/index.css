@@ -8,7 +8,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #FFF;
-  font-size: 100%;
+  font-size: calc(12px + (26 - 12) * ((100vw - 300px) / (1600 - 300)));
+  line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
 }
 
 html {
@@ -22,8 +23,8 @@ html {
 
 .high_class_text {
   font-family: 'Montserrat', sans-serif;
-  font-size: x-large;
-  line-height: 1.25;
+  font-size: calc(12px + (20 - 12) * ((100vw - 300px) / (1600 - 300)));
+  line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
 }
 
 .content_text {
@@ -34,19 +35,6 @@ html {
   margin: auto;
 }
 
-h1 {
-  font-size: 2em;
-  /* 2x body copy size = 32px */
-  line-height: 1.25;
-  /* 45px / 36px */
-}
-
-h2 {
-  font-size: 1.625em;
-  /* 1.625x body copy size = 26px */
-  line-height: 1.15384615;
-  /* 30px / 26px */
-}
 
 body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2, h3, h4, h5, h6 {
   font-size-adjust: 0.5;
