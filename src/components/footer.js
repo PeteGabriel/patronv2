@@ -24,7 +24,7 @@ class Footer extends Component {
                 
                     <Grid.Column style={{minWidth:'100%', margin:'auto'}}>
                       <p className="content_text" style={bottomInfoStyle}>
-                          Copyright © {new Date().getFullYear()} - <i>El Patron Celebraciones</i>.
+                          Copyright © {new Date().getFullYear()} - <i>Eventos El Patron</i>.
                       </p>
                     </Grid.Column>
 

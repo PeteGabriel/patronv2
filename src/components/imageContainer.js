@@ -1,21 +1,12 @@
 import React, {Component} from 'react';
 import Carousel from 'nuka-carousel'
-import { 
-    Icon,
-    Segment,
-    Grid
-} from 'semantic-ui-react'
+import { Icon, Segment, Grid } from 'semantic-ui-react'
 import {LIGHT_ORANGE} from '../styles/colors'
+import PropTypes from 'prop-types';
+
 
 class ImageContainer extends Component {
 
-  /**
-   * Props:
-   *   content: Component to be displayed as content
-   *   elemId: 
-   *   toReverse: Flag to reverse layout
-   *   imgs: Array of images to display
-   */
   constructor(props) {
       super(props)
       this._buildCarousel = this._buildCarousel.bind(this)
@@ -74,16 +65,25 @@ class ImageContainer extends Component {
             initialSlideHeight={500}
             heightMode='first'
             autoplay
-            renderCenterLeftControls={({ previousSlide }) => (
-                <div id='controls' onClick={previousSlide}>
-                    <Icon size='big' inverted name="arrow left"/>
-                </div>
-            )}
-            renderCenterRightControls={({ nextSlide }) => (
-                <div id='controls' onClick={nextSlide}>
-                    <Icon size='big' inverted name="arrow right"/>
-                </div>
-            )}
+            renderCenterLeftControls={({ previousSlide, currentSlide }) => {
+                if ((currentSlide+1) == 1){
+                    return null
+                }
+                return (
+                    <div id='controls' onClick={previousSlide}>
+                        <Icon size='big' inverted name="arrow left"/>
+                    </div>)}
+            }
+            renderCenterRightControls={({ nextSlide, currentSlide, slideCount }) => {
+                if ((currentSlide+1) == slideCount){
+                    return null
+                }
+                return (
+                    <div id='controls' onClick={nextSlide}>
+                        <Icon size='big' inverted name="arrow right"/>
+                    </div>)
+                }
+            }
             swiping>
             {imgs.map((img) => <img alt="img" key={img} src={img} style={{ paddingBottom: '5%' }} />)}
         </Carousel >
@@ -96,5 +96,11 @@ export default ImageContainer
 const containerStyle = {
     padding: '4%',
     alignItems: 'center',
-    overflow: 'auto'
+    overflow: 'auto',
 }
+
+ImageContainer.propTypes = {
+    content: PropTypes.func.isRequired,
+    toReverse: PropTypes.bool,
+    imgs: PropTypes.array.isRequired
+  };

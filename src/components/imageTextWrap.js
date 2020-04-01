@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ImageContainer  from "./imageContainer";
 import {List} from 'semantic-ui-react'
+import {LIGHT_DARK} from './../styles/colors';
 
 class ImageTextWarp extends Component {
   
@@ -14,8 +15,12 @@ class ImageTextWarp extends Component {
 
   _getImgs(){
     return [
-      require("../assets/outside/outside_img4.jpg"),
-      require("../assets/outside/outside_img5.jpg"),
+      require("../assets/finca/1.jpg"),
+      require("../assets/finca/2.jpg"),
+      require("../assets/finca/3.jpg"),
+      require("../assets/finca/4.jpg"),
+      require("../assets/finca/5.jpg"),
+      require("../assets/finca/6.jpg"),
     ]
   }
   
@@ -29,7 +34,7 @@ class ImageTextWarp extends Component {
   _reverseContent(){
     const content = [
       "Zona ampla de parking.",
-      "Carpa de 360m2 con barra y pista de baile con 250 personas sentadas.",
+      "Carpa de 360m con barra y pista de baile con 250 personas sentadas.",
       "Barra exterior de mas de 15 metros con neveras, congeladores y grifos de cerveza.",
       "Zona de arboleda con mesas y sillones.",
       "Zona verde perfecta para session de fotos.",
@@ -42,7 +47,7 @@ class ImageTextWarp extends Component {
           <h1 className="header high_class_text">
               <i>"Una atención personal y el interés por el detalle."</i>
           </h1>
-          <h2 className="content_text sub_header">
+          <h2 className="content_text" style={{color: LIGHT_DARK}}>
               Tenemos una amplia oferta de servicios.
           </h2>
 
@@ -51,8 +56,10 @@ class ImageTextWarp extends Component {
                 content.map((line, idx) => (
                   <List.Item key={idx}>
                       <List.Icon name="check circle outline" color='grey'/>
-                      <List.Content className="content_text contentt" style={{fontSize: 18, color: 'grey',}}>
-                        {line}
+                      <List.Content>
+                        <p className="content_text" style={{color: 'grey',}}>
+                          {line}
+                        </p>
                       </List.Content>
                   </List.Item>)
               )}
@@ -62,17 +69,17 @@ class ImageTextWarp extends Component {
 
   _content(){
     return (
-    <span >
-      <h1 className='header high_class_text' >
-        <i>
-            Bonita finca a las puertas del Parque de Los Alcornocales, en plena naturaleza. 
-        </i>
+    <span>
+      <h1 style={{color: LIGHT_DARK}} className='header high_class_text' >
+        <i>Preciosa finca a las puertas del</i>
+        <br/>
+        <i>Parque de Los Alcornocales, en plena naturaleza.</i>
       </h1>
 
-      <h1 className="header high_class_text" style={{marginTop: '2%'}}>
-        <i>
-            Un lugar donde podrá celebrar, con todo tipo de comodidades, tu evento deseado. 
-        </i>
+      <h1 className="header high_class_text" style={{marginTop: '2%', color: LIGHT_DARK}}>
+        <i>Un lugar donde podrá celebrar con todo tipo de comodidades</i>
+        <br/>
+        <i>tu evento deseado.</i>
       </h1>
     </span>)
   }

@@ -19,22 +19,19 @@ class Header extends Component {
 
   _getMenu(){
     return (
-      <Menu  style={menuStyle}widths="five" borderless stackable>
+      <Menu  style={menuStyle}widths="four" borderless stackable>
         <Container>
-          <Menu.Item style={menuItemStyle} className="high_class_text" name='begining' onClick={null}>
-              Inicio
+          <Menu.Item name='services' onClick={null}>
+            <p className="header_menu_title">Servicios</p>
           </Menu.Item>
-          <Menu.Item style={menuItemStyle}  className="high_class_text" name='services' onClick={null}>
-            Servicios
+          <Menu.Item name='location' onClick={null}>
+            <p className="header_menu_title">Localizacion</p>
           </Menu.Item>
-          <Menu.Item style={menuItemStyle} className="high_class_text" name='location' onClick={null}>
-            Localizacion
+          <Menu.Item name='contact' onClick={null}>
+            <p className="header_menu_title">Contacto</p>
           </Menu.Item>
-          <Menu.Item style={menuItemStyle} className="high_class_text" name='contact' onClick={null}>
-            Contacto
-          </Menu.Item>
-          <Menu.Item style={menuItemStyle} className="high_class_text" name='tour' onClick={null}>
-            Virtual Tour
+          <Menu.Item name='tour' onClick={null}>
+            <p className="header_menu_title">Virtual Tour</p>
           </Menu.Item>
         </Container>
       </Menu>
@@ -46,9 +43,4 @@ export default Header;
 
 const menuStyle = {border:0, boxShadow: 'none'}
 
-const menuItemStyle  = {
-  textDecoration: 'none',
-  color: 'black',
-  fontFamily: 'Elsie'
-};
 
