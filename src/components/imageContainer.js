@@ -8,7 +8,8 @@ import PropTypes from 'prop-types';
 class ImageContainer extends Component {
 
   constructor(props) {
-      super(props)
+			super(props)
+			this.carouselRef = null
       this._buildCarousel = this._buildCarousel.bind(this)
       this._handleNormalLayout = this._handleNormalLayout.bind(this)
       this._handleReverseLayout = this._handleReverseLayout.bind(this)
@@ -61,9 +62,9 @@ class ImageContainer extends Component {
       return (
         <Carousel
             style={{border:0, boxShadow: 'none', flexGrow: 1, maxWidth: '100%' }}
-            initialSlidewidth={500}
-            initialSlideHeight={500}
-            heightMode='first'
+            ref={ref => {
+							this.carouselRef = ref;
+						}}
             autoplay
             renderCenterLeftControls={({ previousSlide, currentSlide }) => {
                 if ((currentSlide+1) == 1){
@@ -85,10 +86,15 @@ class ImageContainer extends Component {
                 }
             }
             swiping>
-            {imgs.map((img) => <img alt="img" key={img} src={img} style={{ paddingBottom: '5%' }} />)}
+            {imgs.map((img) => <img alt="img" key={img} src={img} onLoad={this._handleLoadImage} style={{ paddingBottom: '5%' }} />)}
         </Carousel >
       )
-  }
+	}
+	
+	_handleLoadImage = () => {
+		this.carouselRef.setDimensions()
+	}
+
 }
 
 export default ImageContainer
