@@ -67,7 +67,7 @@ class ImageContainer extends Component {
 						}}
             autoplay
             renderCenterLeftControls={({ previousSlide, currentSlide }) => {
-                if ((currentSlide+1) == 1){
+                if ((currentSlide+1) === 1){
                     return null
                 }
                 return (
@@ -76,7 +76,7 @@ class ImageContainer extends Component {
                     </div>)}
             }
             renderCenterRightControls={({ nextSlide, currentSlide, slideCount }) => {
-                if ((currentSlide+1) == slideCount){
+                if ((currentSlide+1) === slideCount){
                     return null
                 }
                 return (
