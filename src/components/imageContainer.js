@@ -41,11 +41,11 @@ class ImageContainer extends Component {
   }
 
   _handleReverseLayout(imgs) {
-    let style = Object.assign({}, containerStyle, {border: 0, boxShadow: 0})
+    let style = Object.assign({}, containerStyle, {border: 0, boxShadow: 0, minHeight: 800})
       return (
         <Segment id="imageTextWarpSegmentReverse" style={style}>
             <Grid columns={2} stackable textAlign='center'>
-                <Grid.Row verticalAlign='middle'>
+                <Grid.Row verticalAlign='middle' style={{height: 700}}>
                     <Grid.Column>
                         {this.props.content()}
                     </Grid.Column>
@@ -64,8 +64,9 @@ class ImageContainer extends Component {
             style={{border:0, boxShadow: 'none', flexGrow: 1, maxWidth: '100%' }}
             ref={ref => {
 							this.carouselRef = ref;
-						}}
-            autoplay
+                        }}
+            framePadding={"0px"}
+            heightMode={'current'}
             renderCenterLeftControls={({ previousSlide, currentSlide }) => {
                 if ((currentSlide+1) === 1){
                     return null

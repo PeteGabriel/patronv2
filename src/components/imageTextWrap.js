@@ -26,8 +26,14 @@ class ImageTextWarp extends Component {
   
   _getImgsReverse(){
     return [
-      require("../assets/outside/outside_img5.jpg"),
-      require("../assets/outside/outside_img4.jpg")
+      require("../assets/outside/1.jpg"),
+      require("../assets/outside/2.jpg"),
+      require("../assets/outside/3.jpg"),
+      require("../assets/outside/4.jpg"),
+      require("../assets/outside/5.jpg"),
+      require("../assets/outside/6.jpg"),
+      require("../assets/outside/7.jpg"),
+      require("../assets/outside/8.jpg"),
     ]
   }
 

@@ -1,37 +1,31 @@
 import React, { Component } from 'react';
-import Carousel from 'nuka-carousel';
-import { Container, Image, Segment, Responsive, Icon } from 'semantic-ui-react';
+import { Container, Segment } from 'semantic-ui-react';
 import { PURPLE_RAIN, PINK, LIGHT_ORANGE} from '../styles/colors';
-
+import Gallery from "react-photo-gallery";
+import Carousel, { Modal, ModalGateway } from "react-images";
 
 class ImageSlideshow extends Component {
 
   constructor(props){
-    super(props)  
-
-    let slidesToShow = 0
-    if (window.innerWidth >= Responsive.onlyMobile.maxWidth){
-      slidesToShow = 4
-    }else {
-      slidesToShow = 1
-    }
+    super(props)
     this.state = {
-      imgs: [
-        'https://via.placeholder.com/450',
-        'https://via.placeholder.com/450',
-        'https://via.placeholder.com/450',
-        'https://via.placeholder.com/450',
-        'https://via.placeholder.com/450',
-        'https://via.placeholder.com/450',
-        'https://via.placeholder.com/450',
-        'https://via.placeholder.com/450',
-        'https://via.placeholder.com/450'
-      ],
-      slidesToShow: slidesToShow
+      currentImage: 0,
+      isOpen: false
     }
+
+    this._openLightbox = this._openLightbox.bind(this)
+    this._closeLightbox = this._closeLightbox.bind(this)
   }
 
 
+  _openLightbox(e, { photo, index }){
+    this.setState({currentImage: index, isOpen: true})
+  }
+
+  _closeLightbox = () => this.setState({currentImage: 0, isOpen: false});
+  
+  
+  
   render(){
     return (
       <Segment style={photosSegmentStyle}>
@@ -43,33 +37,29 @@ class ImageSlideshow extends Component {
             <b>@EventosElPatron</b>
           </p>
         </Container>
-        <Carousel
-            style={{border:0, boxShadow: 'none', flexGrow: 1, maxWidth: '100%', marginBottom: 80}}
-            slidesToShow={this.state.slidesToShow}
-            renderCenterLeftControls={({ previousSlide }) => (
-              <div id='controls' onClick={previousSlide}>
-                  <Icon size='big' inverted name="arrow left"/>
-              </div>
-            )}
-            renderCenterRightControls={({ nextSlide }) => (
-              <div id='controls' onClick={nextSlide}>
-                  <Icon size='big' inverted name="arrow right"/>
-              </div>
-            )}
-            renderBottomCenterControls={() => null}>      
-              {
-                this.state.imgs.map((url, idx) =>(
-                  <div key={idx} style={{marginRight: 15}}>
-                    <Image src={url} rounded />
-                  </div>
-                )
-              )}
-          </Carousel>
+        <div>
+          <Gallery photos={photos} onClick={this._openLightbox} />
+          <ModalGateway>
+            {this.state.isOpen ? (
+              <Modal onClose={this._closeLightbox}>
+                <Carousel
+                  currentIndex={this.state.currentImage}
+                  views={photos.map(x => ({
+                    ...x,
+                    srcset: x.srcSet,
+                    caption: x.title
+                  }))}
+                />
+              </Modal>
+            ) : null}
+          </ModalGateway>
+        </div>
         
       </Segment>)
   }
 
 }
+
 
 export default ImageSlideshow
 
@@ -81,3 +71,62 @@ const photosSegmentStyle = {
   background: LIGHT_ORANGE, 
   minHeight: 500
 }
+
+
+const photos = [
+  {
+    src: "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
+    width: 4,
+    height: 3
+  },
+  {
+    src: "https://source.unsplash.com/Dm-qxdynoEc/800x799",
+    width: 1,
+    height: 1
+  },
+  {
+    src: "https://source.unsplash.com/qDkso9nvCg0/600x799",
+    width: 3,
+    height: 4
+  },
+  {
+    src: "https://source.unsplash.com/iecJiKe_RNg/600x799",
+    width: 3,
+    height: 4
+  },
+  {
+    src: "https://source.unsplash.com/epcsn8Ed8kY/600x799",
+    width: 3,
+    height: 4
+  },
+  {
+    src: "https://source.unsplash.com/NQSWvyVRIJk/800x599",
+    width: 4,
+    height: 3
+  },
+  {
+    src: "https://source.unsplash.com/zh7GEuORbUw/600x799",
+    width: 3,
+    height: 4
+  },
+  {
+    src: "https://source.unsplash.com/PpOHJezOalU/800x599",
+    width: 4,
+    height: 3
+  },
+  {
+    src: "https://source.unsplash.com/I1ASdgphUH4/800x599",
+    width: 4,
+    height: 3
+  },
+  {
+    src: "https://source.unsplash.com/XiDA78wAZVw/600x799",
+    width: 3,
+    height: 4
+  },
+  {
+    src: "https://source.unsplash.com/x8xJpClTvR0/800x599",
+    width: 4,
+    height: 3
+  }
+]
