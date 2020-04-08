@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Container, Segment } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 import { PURPLE_RAIN, PINK, LIGHT_ORANGE} from '../styles/colors';
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 
-class ImageSlideshow extends Component {
+class ImageShow extends Component {
 
   constructor(props){
     super(props)
@@ -28,7 +28,7 @@ class ImageSlideshow extends Component {
   
   render(){
     return (
-      <Segment style={photosSegmentStyle}>
+      <Container fluid style={photosSegmentStyle}>
         <Container style={{paddingTop:40, marginBottom: 50}}>
           <h2 className="content_text" style={{color: PURPLE_RAIN, marginBottom: 8}}>
             Siguenos y comparte tu experiencia
@@ -37,7 +37,7 @@ class ImageSlideshow extends Component {
             <b>@EventosElPatron</b>
           </p>
         </Container>
-        <div>
+        <div style={{marginRight: 10, marginTop: 10, marginLeft: 10}}>
           <Gallery photos={photos} onClick={this._openLightbox} />
           <ModalGateway>
             {this.state.isOpen ? (
@@ -54,14 +54,13 @@ class ImageSlideshow extends Component {
             ) : null}
           </ModalGateway>
         </div>
-        
-      </Segment>)
+      </Container>)
   }
 
 }
 
 
-export default ImageSlideshow
+export default ImageShow
 
 
 const photosSegmentStyle = {
@@ -69,7 +68,8 @@ const photosSegmentStyle = {
   border:0, 
   boxShadow: 'none', 
   background: LIGHT_ORANGE, 
-  minHeight: 500
+  minHeight: 500,
+  paddingBottom: 10
 }
 
 

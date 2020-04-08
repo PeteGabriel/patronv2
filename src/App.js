@@ -9,7 +9,7 @@ import './components/footer'
 import Header from './components/header';
 import Footer from './components/footer';
 import ImageTextWarp from './components/imageTextWrap';
-import ImageSlideshow from './components/imageSlideshow';
+import ImageShow from './components/imageShow';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Header/>
         <ImageTextWarp />
         <ImageTextWarp toReverse />
-        <ImageSlideshow/>
+        <ImageShow/>
         <Footer/>
       </Segment>
     </Responsive>
