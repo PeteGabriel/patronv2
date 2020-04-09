@@ -42,16 +42,26 @@ class Footer extends Component {
      );
    }
 
+   /**
+    * Handler for whatsApp icon touch event.
+    * TODO: localize message and add logs. 
+    */
+   _handleWhatsAppMsg(e){
+     const msg = "Hola,%20me%20gustaria%20contactar%20con%20usted%20para%20saber%20mas%20sobre%20El%20Patron%20Eventos."
+     e.currentTarget.href = `https://wa.me?text=${msg}`
+     return true
+   }
+
    _getSocialMediaBrands(){
      return (
       <div>
-        <a href="#faFacebook">
+        <a href="https://www.facebook.com" target="_blank">
           <FontAwesomeIcon style={{"color":"#3b5998"}} icon={faFacebook} fixedWidth size="2x"  />
         </a>
-        <a href="#faInstagram">
+        <a href="https://www.instagram.com" target="_blank">
           <FontAwesomeIcon style={{"color":"#3f729b"}} icon={faInstagram} fixedWidth size="2x"  />
         </a>
-        <a href="#faWhatsapp">
+        <a href="" target="_blank" onClick={this._handleWhatsAppMsg}>
           <FontAwesomeIcon style={{"color":"green"}} icon={faWhatsapp} fixedWidth size="2x"  />
         </a>
       </div>
