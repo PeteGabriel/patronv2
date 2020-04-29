@@ -4,17 +4,18 @@ import { Icon, Segment, Grid, Responsive } from 'semantic-ui-react'
 import {LIGHT_ORANGE} from '../styles/colors'
 import PropTypes from 'prop-types';
 
-
 class ImageContainer extends Component {
 
   constructor(props) {
 		super(props)
+
 		this.carouselRef = null
 		this.isDesktopView = window.innerWidth >= Responsive.onlyMobile.maxWidth
 		this._buildCarousel = this._buildCarousel.bind(this)
 		this._handleNormalLayout = this._handleNormalLayout.bind(this)
 		this._handleReverseLayout = this._handleReverseLayout.bind(this)
-  }
+	}
+	
 
   render() {
 	  if (this.props.toReverse){
@@ -25,9 +26,10 @@ class ImageContainer extends Component {
 	
 	_getGridRowHeight(){
     if (this.isDesktopView){
-      return 700
+      return window.innerHeight
     }else {
-      return 600
+			//only 80% of the view should be enough
+			return (window.innerHeight * 80) / 100
     }
 	}
 
@@ -37,7 +39,6 @@ class ImageContainer extends Component {
     }else {
       return () => null
     }
-		
 	}
 
   _handleNormalLayout(imgs) {
@@ -45,7 +46,7 @@ class ImageContainer extends Component {
 	  return (
 		  <Segment id="imageTextWrapSegment" style={style}>
 			  <Grid columns={2} stackable textAlign='center'>
-				<Grid.Row verticalAlign='middle'>
+				<Grid.Row verticalAlign='middle' style={{height: this._getGridRowHeight()}}>
 					<Grid.Column>
 						{this._buildCarousel(imgs)}
 					</Grid.Column>
@@ -59,7 +60,7 @@ class ImageContainer extends Component {
   }
 
   _handleReverseLayout(imgs) {
-	let style = Object.assign({}, containerStyle, {border: 0, boxShadow: 0})
+	let style = Object.assign({}, containerStyle, {border: 0, boxShadow: 0, margin: 0})
 	  return (
 		<Segment id="imageTextWarpSegmentReverse" style={style}>
 			<Grid columns={2} stackable textAlign='center'>
@@ -78,36 +79,42 @@ class ImageContainer extends Component {
 
   _buildCarousel(imgs) {
 	  return (
-		<Carousel
-			style={{border:0, boxShadow: 'none', flexGrow: 1, maxWidth: '100%' }}
-			ref={ref => {
-							this.carouselRef = ref;
-						}}
-			framePadding={"0px"}
-			heightMode={'current'}
-			renderBottomCenterControls={this._showPagingDots()}
-			renderCenterLeftControls={({ previousSlide, currentSlide }) => {
-				if ((currentSlide+1) === 1){
-					return null
+			<Carousel
+				style={{border:0, boxShadow: 'none', flexGrow: 1, maxWidth: '100%' }}
+				ref={ref => {
+								this.carouselRef = ref;
+							}}
+				framePadding={"0px"}
+				heightMode={'current'}
+				renderBottomCenterControls={this._showPagingDots()}
+				renderCenterLeftControls={({ previousSlide, currentSlide }) => {
+					if ((currentSlide+1) === 1){
+						return null
+					}
+					return (
+						<div id='controls' onClick={previousSlide}>
+							<Icon size='big' inverted name="arrow left"/>
+						</div>)}
 				}
-				return (
-					<div id='controls' onClick={previousSlide}>
-						<Icon size='big' inverted name="arrow left"/>
-					</div>)}
-			}
-			renderCenterRightControls={({ nextSlide, currentSlide, slideCount }) => {
-				if ((currentSlide+1) === slideCount){
-					return null
+				renderCenterRightControls={({ nextSlide, currentSlide, slideCount }) => {
+					if ((currentSlide+1) === slideCount){
+						return null
+					}
+					return (
+						<div id='controls' onClick={nextSlide}>
+							<Icon size='big' inverted name="arrow right"/>
+						</div>)
+					}
 				}
-				return (
-					<div id='controls' onClick={nextSlide}>
-						<Icon size='big' inverted name="arrow right"/>
-					</div>)
-				}
-			}
-			swiping>
-			{imgs.map((img) => <img alt="img" key={img} src={img} onLoad={this._handleLoadImage} style={{ paddingBottom: '5%' }} />)}
-		</Carousel >
+				swiping>
+				{imgs.map((img) => 
+						<img alt="img" 
+							key={img}
+							src={img}
+							onLoad={this._handleLoadImage} 
+							style={{ paddingBottom: '5%' }} />
+				)}
+			</Carousel>
 	  )
 	}
 	
@@ -120,7 +127,8 @@ class ImageContainer extends Component {
 export default ImageContainer
 
 const containerStyle = {
-	padding: '4%',
+	paddingRight: '4%',
+	paddingLeft: '4%',
 	alignItems: 'center',
 	overflow: 'auto',
 }
@@ -129,4 +137,5 @@ ImageContainer.propTypes = {
 	content: PropTypes.func.isRequired,
 	toReverse: PropTypes.bool,
 	imgs: PropTypes.array.isRequired
-  };
+	};
+

@@ -50,9 +50,6 @@ class ImageTextWarp extends Component {
     ]
     return (
       <div style={{margin: 'auto', position: "relative", marginRight: 0, textAlign: "left"}}>
-          <h1 className="header high_class_text">
-              <i>"Una atención personal y el interés por el detalle."</i>
-          </h1>
           <h2 className="content_text" style={{color: LIGHT_DARK}}>
               Tenemos una amplia oferta de servicios.
           </h2>
@@ -70,6 +67,9 @@ class ImageTextWarp extends Component {
                   </List.Item>)
               )}
           </List>
+          <p className="quote" style={{position:"absolute",right: 50, marginTop: 70}}>
+              <i>"Una atención personal y el interés por el detalle."</i>
+          </p>
         </div>)
   }
 

@@ -24,11 +24,12 @@ class ImageShow extends Component {
 
   _closeLightbox = () => this.setState({currentImage: 0, isOpen: false});
   
-  
+
   
   render(){
+    let style = Object.assign({}, photosSegmentStyle, {height: window.innerHeight})
     return (
-      <Container fluid style={photosSegmentStyle}>
+      <div fluid style={style}>
         <Container style={{paddingTop:40, marginBottom: 50}}>
           <h2 className="content_text" style={{color: PURPLE_RAIN, marginBottom: 8}}>
             Siguenos y comparte tu experiencia
@@ -54,7 +55,7 @@ class ImageShow extends Component {
             ) : null}
           </ModalGateway>
         </div>
-      </Container>)
+      </div>)
   }
 
 }
@@ -67,8 +68,7 @@ const photosSegmentStyle = {
   alignItems:'center', 
   border:0, 
   boxShadow: 'none', 
-  background: LIGHT_ORANGE, 
-  minHeight: 500,
+  background: LIGHT_ORANGE,
   paddingBottom: 10
 }
 

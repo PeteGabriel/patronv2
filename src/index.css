@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Elsie|Montserrat|Lora&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Elsie|Montserrat|Lora|Tangerine&display=swap');
 
 body {
   margin: 0;
@@ -31,7 +31,13 @@ html {
 
 .high_class_text {
   font-family: 'Montserrat', sans-serif;
-  font-size: calc(14px + (20 - 14) * ((100vw - 300px) / (1600 - 300)));
+  font-size: calc(14px + (22 - 14) * ((100vw - 300px) / (1600 - 300)));
+  line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+}
+
+.quote{
+  font-family: 'Tangerine', cursive;
+  font-size: calc(14px + (50 - 20) * ((100vw - 300px) / (1600 - 300)));
   line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
 }
 
