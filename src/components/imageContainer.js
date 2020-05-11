@@ -29,17 +29,11 @@ class ImageContainer extends Component {
       return window.innerHeight
     }else {
 			//only 80% of the view should be enough
-			return (window.innerHeight * 80) / 100
+			return (window.innerHeight * 70) / 100
     }
 	}
 
-	_showPagingDots(){
-		if (this.isDesktopView){
-      return 
-    }else {
-      return () => null
-    }
-	}
+	_showArrowSigns = () => this.isDesktopView
 
   _handleNormalLayout(imgs) {
 	  let style = Object.assign({}, containerStyle, {background: LIGHT_ORANGE})
@@ -86,26 +80,33 @@ class ImageContainer extends Component {
 							}}
 				framePadding={"0px"}
 				heightMode={'current'}
-				renderBottomCenterControls={this._showPagingDots()}
+				renderBottomCenterControls={null}
 				renderCenterLeftControls={({ previousSlide, currentSlide }) => {
 					if ((currentSlide+1) === 1){
 						return null
 					}
-					return (
-						<div id='controls' onClick={previousSlide}>
-							<Icon size='big' inverted name="arrow left"/>
-						</div>)}
-				}
+					if (this._showArrowSigns()){
+						return (
+							<div id='controls' onClick={previousSlide}>
+								<Icon size='big' inverted name="arrow left"/>
+							</div>)
+					}else {
+						return null
+					}
+				}}
 				renderCenterRightControls={({ nextSlide, currentSlide, slideCount }) => {
 					if ((currentSlide+1) === slideCount){
 						return null
 					}
-					return (
-						<div id='controls' onClick={nextSlide}>
-							<Icon size='big' inverted name="arrow right"/>
-						</div>)
+					if (this._showArrowSigns()){
+						return (
+							<div id='controls' onClick={nextSlide}>
+								<Icon size='big' inverted name="arrow right"/>
+							</div>)
+					}else {
+						return null
 					}
-				}
+				}}
 				swiping>
 				{imgs.map((img) => 
 						<img alt="img" 

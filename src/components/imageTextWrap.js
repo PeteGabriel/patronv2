@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ImageContainer  from "./imageContainer";
-import {List} from 'semantic-ui-react'
+import {List, Responsive} from 'semantic-ui-react'
 import {LIGHT_DARK} from './../styles/colors';
 
 class ImageTextWarp extends Component {
-  
+
   render(){
     let reverse = this.props.toReverse
     let content = reverse ? this._reverseContent : this._content 
@@ -48,6 +48,11 @@ class ImageTextWarp extends Component {
       "Amplias barbacoas y parrillas.",
       "Plaza de toros."
     ]
+    let quote = window.innerWidth >= Responsive.onlyMobile.maxWidth ? 
+       (<p className="quote" style={{position:"absolute",right: 50, marginTop: 70}}>
+          <i>"Una atención personal y el interés por el detalle."</i>
+        </p>) : null
+    
     return (
       <div style={{margin: 'auto', position: "relative", marginRight: 0, textAlign: "left"}}>
           <h2 className="content_text" style={{color: LIGHT_DARK}}>
@@ -67,11 +72,11 @@ class ImageTextWarp extends Component {
                   </List.Item>)
               )}
           </List>
-          <p className="quote" style={{position:"absolute",right: 50, marginTop: 70}}>
-              <i>"Una atención personal y el interés por el detalle."</i>
-          </p>
+          {quote}
         </div>)
   }
+
+  
 
   _content(){
     return (
