@@ -27,9 +27,9 @@ class ImageShow extends Component {
 
   
   render(){
-    let style = Object.assign({}, photosSegmentStyle, {height: window.innerHeight})
+    let style = Object.assign({}, photosSegmentStyle, {height: window.innerHeight, overflow: 'scroll', overflowX: 'hidden'})
     return (
-      <div fluid style={style}>
+      <div style={style}>
         <Container style={{paddingTop:40, marginBottom: 50}}>
           <h2 className="content_text" style={{color: PURPLE_RAIN, marginBottom: 8}}>
             Siguenos y comparte tu experiencia

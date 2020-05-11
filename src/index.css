@@ -12,7 +12,15 @@ body {
 
 html {
   scroll-behavior: smooth;
+  overflow: scroll;
+  overflow-x: hidden;
 }
+
+
+::-webkit-scrollbar {
+  width: 0px;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+} 
 
 #root{
   padding-left: 2%;
