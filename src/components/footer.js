@@ -60,7 +60,8 @@ class Footer extends Component {
 }
 
 const navbar = {
-    minHeight: 200
+    minHeight: 200,
+    marginTop: 1
 }
 
 const bottomInfoStyle = {

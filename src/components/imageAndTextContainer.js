@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ImageContainer  from "./imageContainer";
 import {List} from 'semantic-ui-react'
-import {LIGHT_DARK} from './../styles/colors';
+import {LIGHT_DARK} from '../styles/colors';
 
-class ImageTextWarp extends Component {
+class ImageAndTextContainer extends Component {
   
   render(){
     let reverse = this.props.toReverse
@@ -76,13 +76,13 @@ class ImageTextWarp extends Component {
   _content(){
     return (
     <span>
-      <h1 style={{color: LIGHT_DARK}} className='header high_class_text' >
+      <h1 style={{color: LIGHT_DARK}} className='high_class_text' >
         <i>Preciosa finca a las puertas del</i>
         <br/>
         <i>Parque de Los Alcornocales, en plena naturaleza.</i>
       </h1>
 
-      <h1 className="header high_class_text" style={{marginTop: '2%', color: LIGHT_DARK}}>
+      <h1 className="high_class_text" style={{marginTop: '2%', color: LIGHT_DARK}}>
         <i>Un lugar donde podrá celebrar con todo tipo de comodidades</i>
         <br/>
         <i>tu evento deseado.</i>
@@ -91,4 +91,4 @@ class ImageTextWarp extends Component {
   }
 }
 
-export default ImageTextWarp
+export default ImageAndTextContainer
