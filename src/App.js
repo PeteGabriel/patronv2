@@ -8,7 +8,7 @@ import './components/footer'
 
 import Header from './components/header';
 import Footer from './components/footer';
-import ImageAndTextContainer from './components/imageAndTextContainer';
+import ImageTextWarp from './components/ImageTextWarp';
 import ImageShow from './components/imageShow';
 import Contact from './components/contact';
 
@@ -17,8 +17,8 @@ function App() {
     <Responsive minWidth={Responsive.onlyMobile.minWidth} className="App">
       <Segment textAlign='center' style={{padding: '1em 0em' }} vertical>
         <Header/>
-        <ImageAndTextContainer />
-        <ImageAndTextContainer toReverse />
+        <ImageTextWarp />
+        <ImageTextWarp toReverse />
         <ImageShow/>
         <Contact/>
         <Footer/>

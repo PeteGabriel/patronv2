@@ -27,7 +27,7 @@ class ImageShow extends Component {
 
   
   render(){
-    let style = Object.assign({}, photosSegmentStyle, {height: window.innerHeight})
+    let style = Object.assign({}, photosSegmentStyle, {height: window.innerHeight, overflow: 'scroll', overflowX: 'hidden'})
     return (
       <Segment fluid style={style}>
         <Container style={{paddingTop:40, marginBottom: 50, border:0, boxShadow: 'none'}}>
