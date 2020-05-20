@@ -11,8 +11,7 @@ class Header extends Component {
     return (
     <span>
         <img alt="website logo" src={require("../assets/logo.jpg")}/>
-        <Divider />
-        {this._getMenu()}
+        
       
     </span>)
   }

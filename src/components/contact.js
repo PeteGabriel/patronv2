@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import {Segment, Grid, Responsive } from 'semantic-ui-react';
+import {Segment, Grid, Responsive, Icon } from 'semantic-ui-react';
 import GoogleMapReact from 'google-map-react';
 
 class Contact extends Component {
 
   static defaultProps = {
     center: {
-      lat: 36.226982,
-      lng: -5.465077
+      lat: 36.227209,
+      lng: -5.465079
     },
     zoom: 18
   };
@@ -39,15 +39,40 @@ class Contact extends Component {
                 </GoogleMapReact>
               </div>
             </Grid.Column>
-            <Grid.Column floated='right' textAlign='center'>      
+            <Grid.Column floated='right' textAlign='center'>
+              <div style={{marginLeft: '15%', marginRight: '15%'}}>
                 <p className="high_class_text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu ipsum ac odio pretium ultrices viverra fringilla metus. Suspendisse vitae volutpat est. 
-                </p>     
+                Contacte nos con cualquer duda para que juntos hagamos de ese dia un evento impecable 
+                y de sueño.
+                </p>  
+                <div style={{display:'inline-grid'}}>
+                  {this._getPhoneData()}  
+                  {this._getEmailData()}
+                </div>
+              </div> 
             </Grid.Column>
           </Grid.Row>
 			  </Grid> 
       </Segment>
     );
+  }
+
+  _getPhoneData(){
+    return (
+      <div style={{display: 'inline-flex', margin:5, alignItems:'center'}}>
+        <Icon name="phone" size='large'/>
+        <p style={{marginLeft: 10}} className="content_text"><i>(+34)602 291 866</i></p>    
+      </div>
+    )
+  }
+
+  _getEmailData(){
+    return (
+      <div style={{display: 'inline-flex', margin:5, alignItems:'center'}}>
+        <Icon name="mail" size='large'/>
+        <p style={{marginLeft: 10}} className="content_text"><i>eventos@elpatron.es</i></p>    
+      </div>
+    )
   }
 
 
@@ -83,6 +108,6 @@ const segmentStyle = {
   boxShadow: 0,
   margin: 0,
   paddingRight: '4%',
-	paddingLeft: '4%',
+  paddingLeft: '4%',
 	alignItems: 'center',
 }

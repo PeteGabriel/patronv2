@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from 'semantic-ui-react';
+import { Segment, Container } from 'semantic-ui-react';
 import { PURPLE_RAIN, PINK, LIGHT_ORANGE} from '../styles/colors';
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
@@ -29,8 +29,8 @@ class ImageShow extends Component {
   render(){
     let style = Object.assign({}, photosSegmentStyle, {height: window.innerHeight})
     return (
-      <div fluid style={style}>
-        <Container style={{paddingTop:40, marginBottom: 50}}>
+      <Segment fluid style={style}>
+        <Container style={{paddingTop:40, marginBottom: 50, border:0, boxShadow: 'none'}}>
           <h2 className="content_text" style={{color: PURPLE_RAIN, marginBottom: 8}}>
             Siguenos y comparte tu experiencia
           </h2>
@@ -55,7 +55,7 @@ class ImageShow extends Component {
             ) : null}
           </ModalGateway>
         </div>
-      </div>)
+      </Segment>)
   }
 
 }
@@ -75,22 +75,22 @@ const photosSegmentStyle = {
 
 const photos = [
   {
-    src: "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
+    src: require("./../assets/slideshow/rect_2.jpg"),
     width: 4,
     height: 3
   },
   {
-    src: "https://source.unsplash.com/Dm-qxdynoEc/800x799",
+    src: require("./../assets/slideshow/square_1.jpg"),
     width: 1,
     height: 1
   },
   {
-    src: "https://source.unsplash.com/qDkso9nvCg0/600x799",
+    src: require("./../assets/slideshow/vertical_1.jpg"),
     width: 3,
     height: 4
   },
   {
-    src: "https://source.unsplash.com/iecJiKe_RNg/600x799",
+    src: require("./../assets/slideshow/vertical_2.jpg"),
     width: 3,
     height: 4
   },
@@ -100,7 +100,7 @@ const photos = [
     height: 4
   },
   {
-    src: "https://source.unsplash.com/NQSWvyVRIJk/800x599",
+    src: require("./../assets/slideshow/square_5.jpg"),
     width: 4,
     height: 3
   },
@@ -110,8 +110,8 @@ const photos = [
     height: 4
   },
   {
-    src: "https://source.unsplash.com/PpOHJezOalU/800x599",
-    width: 4,
+    src: require("./../assets/slideshow/square_6.jpg"),
+    width: 5,
     height: 3
   },
   {

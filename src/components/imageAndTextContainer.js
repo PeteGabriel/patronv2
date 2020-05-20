@@ -83,7 +83,7 @@ class ImageAndTextContainer extends Component {
       </h1>
 
       <h1 className="high_class_text" style={{marginTop: '2%', color: LIGHT_DARK}}>
-        <i>Un lugar donde podrá celebrar con todo tipo de comodidades</i>
+        <i>Un sitio idílico donde podrá celebrar con todo tipo de comodidades</i>
         <br/>
         <i>tu evento deseado.</i>
       </h1>
