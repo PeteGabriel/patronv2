@@ -39,15 +39,15 @@ class ImageContainer extends Component {
 	  let style = Object.assign({}, containerStyle, {background: LIGHT_ORANGE})
 	  return (
 		  <Segment id="imageTextWrapSegment" style={style}>
-			  <Grid columns={2} stackable textAlign='center'>
-				<Grid.Row verticalAlign='middle' style={{height: this._getGridRowHeight()}}>
-					<Grid.Column>
-						{this._buildCarousel(imgs)}
-					</Grid.Column>
-					<Grid.Column >
-						{this.props.content()}
-					</Grid.Column>
-				</Grid.Row>
+			  <Grid columns={2} stackable textAlign='center' style={{height: this._getGridRowHeight()}}>
+					<Grid.Row verticalAlign='middle'>
+						<Grid.Column>
+							{this._buildCarousel(imgs)}
+						</Grid.Column>
+						<Grid.Column >
+							{this.props.content()}
+						</Grid.Column>
+					</Grid.Row>
 			  </Grid> 
 		  </Segment>
 	  )
@@ -80,7 +80,6 @@ class ImageContainer extends Component {
 							}}
 				framePadding={"0px"}
 				heightMode={'current'}
-				renderBottomCenterControls={null}
 				renderCenterLeftControls={({ previousSlide, currentSlide }) => {
 					if ((currentSlide+1) === 1){
 						return null

@@ -55,7 +55,7 @@ class ImageTextWarp extends Component {
     
     return (
       <div style={{margin: 'auto', position: "relative", marginRight: 0, textAlign: "left"}}>
-          <h2 className="content_text" style={{color: LIGHT_DARK}}>
+          <h2 className="high_class_text" style={{color: LIGHT_DARK}}>
               Tenemos una amplia oferta de servicios.
           </h2>
 
