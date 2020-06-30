@@ -20,8 +20,6 @@ class Footer extends Component {
                       {this._getSocialMediaBrands()}
                     </Grid.Column>
 
-                    <Divider style={{margin: 'auto', marginBottom: 20}}/>
-                
                     <Grid.Column style={{minWidth:'100%', margin:'auto'}}>
                       <p className="content_text" style={bottomInfoStyle}>
                           Copyright © {new Date().getFullYear()} - <i>Eventos El Patron</i>.
@@ -75,7 +73,7 @@ const navbar = {
 }
 
 const bottomInfoStyle = {
-    fontSize: 16, 
+    fontSize: 12, 
     color: LIGHT_DARK
 }
 

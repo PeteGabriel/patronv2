@@ -81,17 +81,17 @@ class ImageTextWarp extends Component {
   _content(){
     return (
     <span>
-      <h1 style={{color: LIGHT_DARK}} className='high_class_text' >
+      <p style={{color: LIGHT_DARK}} className='high_class_text' >
         <i>Preciosa finca a las puertas del</i>
         <br/>
         <i>Parque de Los Alcornocales, en plena naturaleza.</i>
-      </h1>
+      </p>
 
-      <h1 className="high_class_text" style={{marginTop: '2%', color: LIGHT_DARK}}>
+      <p className="high_class_text" style={{marginTop: '2%', color: LIGHT_DARK}}>
         <i>Un sitio idílico donde podrá celebrar con todo tipo de comodidades</i>
         <br/>
         <i>tu evento deseado.</i>
-      </h1>
+      </p>
     </span>)
   }
 }

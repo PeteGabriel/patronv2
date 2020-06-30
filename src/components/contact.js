@@ -40,7 +40,7 @@ class Contact extends Component {
               </div>
             </Grid.Column>
             <Grid.Column floated='right' textAlign='center'>
-              <div style={{marginLeft: '15%', marginRight: '15%'}}>
+              <div style={{marginLeft: '10%', marginRight: '10%'}}>
                 <p className="high_class_text">
                 Contacte nos con cualquer duda para que juntos hagamos de ese dia un evento impecable 
                 y de sueño.
@@ -61,7 +61,7 @@ class Contact extends Component {
     return (
       <div style={{display: 'inline-flex', margin:5, alignItems:'center'}}>
         <Icon name="phone" size='large'/>
-        <p style={{marginLeft: 10}} className="content_text"><i>(+34)602 291 866</i></p>    
+        <p style={{marginLeft: 10}} className="content_text"><i>(+34) 602 291 866</i></p>    
       </div>
     )
   }
