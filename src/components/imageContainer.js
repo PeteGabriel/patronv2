@@ -11,17 +11,27 @@ class ImageContainer extends Component {
 
 		this.carouselRef = null
 		this.isDesktopView = window.innerWidth >= Responsive.onlyMobile.maxWidth
-		this._buildCarousel = this._buildCarousel.bind(this)
+		this._buildCarouselForDesktop = this._buildCarouselForDesktop.bind(this)
+		this._buildCarouselForMobile = this._buildCarouselForMobile.bind(this)
 		this._handleNormalLayout = this._handleNormalLayout.bind(this)
 		this._handleReverseLayout = this._handleReverseLayout.bind(this)
 	}
 	
 
   render() {
+		let carouselBuilder = this.isDesktopView ? this._buildCarouselForDesktop : this._buildCarouselForMobile
+		
 	  if (this.props.toReverse){
-			return this._handleReverseLayout(this.props.imgs)
+			return this._handleReverseLayout(this.props.imgs,
+			  (imgs) => carouselBuilder(imgs), 
+			  () => this.props.content()
+			)
 		}
-		return this._handleNormalLayout(this.props.imgs)
+		return this._handleNormalLayout(
+			this.props.imgs, 
+			(imgs) => carouselBuilder(imgs), 
+			() => this.props.content()
+		)
 	}
 	
 	_getGridRowHeight(){
@@ -29,49 +39,95 @@ class ImageContainer extends Component {
       return window.innerHeight
     }else {
 			//only 80% of the view should be enough
-			return (window.innerHeight * 70) / 100
+			return (window.innerHeight * 65) / 100
     }
 	}
 
-	_showArrowSigns = () => this.isDesktopView
+	_getGridRowHeightForReverse(){
+    if (this.isDesktopView){
+      return window.innerHeight
+    }else {
+			//only 80% of the view should be enough
+			return (window.innerHeight * 80) / 100
+    }
+	}
 
-  _handleNormalLayout(imgs) {
-	  let style = Object.assign({}, containerStyle, {background: LIGHT_ORANGE})
-	  return (
-		  <Segment id="imageTextWrapSegment" style={style}>
-			  <Grid columns={2} stackable textAlign='center' style={{height: this._getGridRowHeight()}}>
-					<Grid.Row verticalAlign='middle'>
-						<Grid.Column>
-							{this._buildCarousel(imgs)}
-						</Grid.Column>
-						<Grid.Column >
-							{this.props.content()}
-						</Grid.Column>
-					</Grid.Row>
-			  </Grid> 
-		  </Segment>
-	  )
+  _handleNormalLayout(imgs, carouselBuilder, contentBuilder) {
+		let style = Object.assign({}, containerStyle, {background: LIGHT_ORANGE})
+			return (
+				<Segment id="imageTextWrapSegment" style={style}>
+					<Grid columns={2} stackable textAlign='center' style={{height: this._getGridRowHeight()}}>
+						<Grid.Row verticalAlign='middle'>
+							<Grid.Column>
+								{carouselBuilder(imgs)}
+							</Grid.Column>
+							<Grid.Column >
+								{contentBuilder()}
+							</Grid.Column>
+						</Grid.Row>
+					</Grid> 
+				</Segment>
+			)
   }
 
-  _handleReverseLayout(imgs) {
-	let style = Object.assign({}, containerStyle, {border: 0, boxShadow: 0, margin: 0})
+  _handleReverseLayout(imgs, carouselBuilder, contentBuilder) {
+		let style = Object.assign({}, containerStyle, {border: 0, boxShadow: 0, margin: 0})
 	  return (
 		<Segment id="imageTextWarpSegmentReverse" style={style}>
 			<Grid columns={2} stackable textAlign='center'>
-				<Grid.Row verticalAlign='middle' style={{height: this._getGridRowHeight()}}>
+				<Grid.Row verticalAlign='middle' style={{height: this._getGridRowHeightForReverse()}}>
 					<Grid.Column>
-						{this.props.content()}
+					  {contentBuilder()}
 					</Grid.Column>
 					<Grid.Column >
-						{this._buildCarousel(imgs)}
+					  {carouselBuilder(imgs)}
 					</Grid.Column>
 				</Grid.Row>
 			</Grid> 
 		</Segment>
 	  )
-  }
+	}
+	
+	_buildCarouselForMobile(imgs){
+		return (
+			<Carousel
+				style={{border:0, boxShadow: 'none', flexGrow: 1, maxWidth: '100%' }}
+				ref={ref => {
+								this.carouselRef = ref;
+							}}
+				framePadding={"0px"}
+				heightMode={'current'}
+				renderBottomCenterControls={
+					() => { return null }
+				}
+				renderCenterLeftControls={({ previousSlide }) => {
+					return (
+						<div id='controls' onClick={previousSlide}>
+							<Icon size='small' inverted name="arrow left"/>
+						</div>)
+				}}
+				renderCenterRightControls={({ nextSlide, currentSlide, slideCount }) => {
+					if ((currentSlide+1) === slideCount){
+						return null
+					}
+					return (
+					  <div id='controls' onClick={nextSlide}>
+							<Icon size='small' inverted name="arrow right"/>
+						</div>)
+				}}
+				swiping>
+				{imgs.map((img) => 
+						<img alt="img" 
+							key={img}
+							src={img}
+							onLoad={this._handleLoadImage} 
+							style={{ paddingBottom: '5%' }} />
+				)}
+			</Carousel>
+	  )
+	}
 
-  _buildCarousel(imgs) {
+  _buildCarouselForDesktop(imgs) {
 	  return (
 			<Carousel
 				style={{border:0, boxShadow: 'none', flexGrow: 1, maxWidth: '100%' }}
@@ -84,27 +140,19 @@ class ImageContainer extends Component {
 					if ((currentSlide+1) === 1){
 						return null
 					}
-					if (this._showArrowSigns()){
-						return (
-							<div id='controls' onClick={previousSlide}>
-								<Icon size='big' inverted name="arrow left"/>
-							</div>)
-					}else {
-						return null
-					}
+					return (
+						<div id='controls' onClick={previousSlide}>
+							<Icon size='big' inverted name="arrow left"/>
+						</div>)
 				}}
 				renderCenterRightControls={({ nextSlide, currentSlide, slideCount }) => {
 					if ((currentSlide+1) === slideCount){
 						return null
 					}
-					if (this._showArrowSigns()){
-						return (
-							<div id='controls' onClick={nextSlide}>
-								<Icon size='big' inverted name="arrow right"/>
-							</div>)
-					}else {
-						return null
-					}
+					return (
+						<div id='controls' onClick={nextSlide}>
+							<Icon size='big' inverted name="arrow right"/>
+						</div>)
 				}}
 				swiping>
 				{imgs.map((img) => 

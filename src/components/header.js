@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import { 
-  Divider, 
   Menu, 
   Container
 } from 'semantic-ui-react' 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Divider, Grid} from 'semantic-ui-react'
+import {Grid} from 'semantic-ui-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import {LIGHT_DARK} from '../styles/colors'
@@ -53,13 +53,13 @@ class Footer extends Component {
    _getSocialMediaBrands(){
      return (
       <div>
-        <a href="https://www.facebook.com/elpatroneventos" target="_blank" >
+        <a href="https://www.facebook.com/elpatroneventos" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon style={{"color":"#3b5998"}} icon={faFacebook} fixedWidth size="2x"  />
         </a>
-        <a href="https://www.instagram.com/elpatroneventos" target="_blank">
+        <a href="https://www.instagram.com/elpatroneventos" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon style={{"color":"#3f729b"}} icon={faInstagram} fixedWidth size="2x"  />
         </a>
-        <a href="" target="_blank" onClick={this._handleWhatsAppMsg}>
+        <a href="" target="_blank" onClick={this._handleWhatsAppMsg} rel="noopener noreferrer">
           <FontAwesomeIcon style={{"color":"green"}} icon={faWhatsapp} fixedWidth size="2x"  />
         </a>
       </div>
