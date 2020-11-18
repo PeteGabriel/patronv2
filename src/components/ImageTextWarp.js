@@ -40,8 +40,8 @@ class ImageTextWarp extends Component {
   _reverseContent(){
     const content = [
       "Zona ampla de parking.",
-      "Carpa de 360m con barra y pista de baile con 250 personas sentadas.",
-      "Barra exterior de mas de 15 metros con neveras, congeladores y grifos de cerveza.",
+      "Carpa con barra y pista de baile con 250 personas sentadas.",
+      "Barra exterior de mas de 15 metros.",
       "Zona de arboleda con mesas y sillones.",
       "Zona verde perfecta para session de fotos.",
       "Cocina completa para ayudar al catering.",
@@ -59,7 +59,7 @@ class ImageTextWarp extends Component {
               Tenemos una amplia oferta de servicios.
           </h2>
 
-          <List style={{marginLeft: 13}} className="list_of_things">
+          <List style={{marginLeft: 0}} className="list_of_things">
               {
                 content.map((line, idx) => (
                   <List.Item key={idx}>

@@ -35,12 +35,9 @@ class ImageContainer extends Component {
 	}
 	
 	_getGridRowHeight(){
-    if (this.isDesktopView){
+    
       return window.innerHeight
-    }else {
-			//only 80% of the view should be enough
-			return (window.innerHeight * 65) / 100
-    }
+    
 	}
 
 	_getGridRowHeightForReverse(){
@@ -54,6 +51,7 @@ class ImageContainer extends Component {
 
   _handleNormalLayout(imgs, carouselBuilder, contentBuilder) {
 		let style = Object.assign({}, containerStyle, {background: LIGHT_ORANGE})
+		if (this.isDesktopView){
 			return (
 				<Segment id="imageTextWrapSegment" style={style}>
 					<Grid columns={2} stackable textAlign='center' style={{height: this._getGridRowHeight()}}>
@@ -61,13 +59,26 @@ class ImageContainer extends Component {
 							<Grid.Column>
 								{carouselBuilder(imgs)}
 							</Grid.Column>
-							<Grid.Column >
+							<Grid.Column>
 								{contentBuilder()}
 							</Grid.Column>
 						</Grid.Row>
 					</Grid> 
 				</Segment>
 			)
+		}
+		return (
+			<Segment id="imageTextWrapSegment" style={style}>
+				<Grid columns={2} stackable textAlign='center' style={{height: this._getGridRowHeight(), alignContent: 'center'}}>
+						<Grid.Column>
+							{carouselBuilder(imgs)}
+						</Grid.Column>
+						<Grid.Column>
+							{contentBuilder()}
+						</Grid.Column>
+				</Grid> 
+			</Segment>
+		)
   }
 
   _handleReverseLayout(imgs, carouselBuilder, contentBuilder) {
@@ -75,7 +86,7 @@ class ImageContainer extends Component {
 	  return (
 		<Segment id="imageTextWarpSegmentReverse" style={style}>
 			<Grid columns={2} stackable textAlign='center'>
-				<Grid.Row verticalAlign='middle' style={{height: this._getGridRowHeightForReverse()}}>
+				<Grid.Row verticalAlign='middle' style={{height: window.innerHeight}}>
 					<Grid.Column>
 					  {contentBuilder()}
 					</Grid.Column>
@@ -185,5 +196,5 @@ ImageContainer.propTypes = {
 	content: PropTypes.func.isRequired,
 	toReverse: PropTypes.bool,
 	imgs: PropTypes.array.isRequired
-	};
+};
 

@@ -34,8 +34,11 @@ class ImageShow extends Component {
           <h2 className="content_text" style={{color: PURPLE_RAIN, marginBottom: 8}}>
             Siguenos y comparte tu experiencia
           </h2>
-          <p className="high_class_text" style={{color: PINK}}>
-            <b>@EventosElPatron</b>
+          <p className="high_class_text">
+            <a style={{color: PINK}}
+               href="https://www.instagram.com/elpatroneventos" target="_blank" rel="noopener noreferrer">
+              <b>@EventosElPatron</b>
+            </a>
           </p>
         </Container>
         <div style={{marginRight: 10, marginTop: 10, marginLeft: 10}}>

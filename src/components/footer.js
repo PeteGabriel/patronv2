@@ -45,7 +45,7 @@ class Footer extends Component {
     * TODO: localize message and add logs. 
     */
    _handleWhatsAppMsg(e){
-     const msg = "Hola,%20me%20gustaria%20contactar%20con%20usted%20para%20saber%20mas%20sobre%20El%20Patron%20Eventos."
+     const msg = "Hola!%20Me%20gustaria%20saber%20mas%20sobre%20El%20Patron%20Eventos."
      e.currentTarget.href = `https://wa.me?text=${msg}`
      return true
    }
