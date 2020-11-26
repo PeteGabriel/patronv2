@@ -87,14 +87,13 @@ class Contact extends Component {
         gestureHandling: "greedy",
         disableDoubleClickZoom: true,
         minZoom: 13,
-        maxZoom: 18,
+        maxZoom: 19,
         mapTypeControl: true,
         mapTypeId: maps.MapTypeId.SATELLITE,
         zoomControl: true,
         clickableIcons: false
     };
-}
-
+  }
 }
 
 export default Contact;
@@ -105,5 +104,5 @@ const segmentStyle = {
   margin: 0,
   paddingRight: '4%',
   paddingLeft: '4%',
-	alignItems: 'center',
+  alignItems: 'center'
 }

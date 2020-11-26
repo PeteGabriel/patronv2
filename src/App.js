@@ -5,11 +5,10 @@ import {
   Segment,
 } from 'semantic-ui-react' 
 import './components/footer'
-
 import Header from './components/header';
 import Footer from './components/footer';
 import ImageTextWarp from './components/ImageTextWarp';
-import ImageShow from './components/imageShow';
+import ImageSlideshow from './components/imageSlideshow';
 import Contact from './components/contact';
 
 function App() {
@@ -19,7 +18,7 @@ function App() {
         <Header/>
         <ImageTextWarp />
         <ImageTextWarp toReverse />
-        <ImageShow/>
+        <ImageSlideshow/>
         <Contact/>
         <Footer/>
       </Segment>

@@ -10,8 +10,6 @@ class Header extends Component {
     return (
     <span>
         <img alt="website logo" src={require("../assets/logo.jpg")}/>
-        
-      
     </span>)
   }
 

@@ -8,12 +8,12 @@ class ImageTextWarp extends Component {
   render(){
     let reverse = this.props.toReverse
     let content = reverse ? this._reverseContent : this._content 
-    let imgs = reverse ? this._getImgsReverse() : this._getImgs()
+    let images = reverse ? this._getImagesInReverse() : this._getImages()
     
-    return <ImageContainer toReverse={reverse} content={content} imgs={imgs}/>
+    return <ImageContainer toReverse={reverse} content={content} imgs={images}/>
   }
 
-  _getImgs(){
+  _getImages(){
     return [
       require("../assets/finca/1.jpg"),
       require("../assets/finca/2.jpg"),
@@ -24,7 +24,7 @@ class ImageTextWarp extends Component {
     ]
   }
   
-  _getImgsReverse(){
+  _getImagesInReverse(){
     return [
       require("../assets/outside/1.jpg"),
       require("../assets/outside/2.jpg"),
@@ -69,8 +69,8 @@ class ImageTextWarp extends Component {
                           {line}
                         </p>
                       </List.Content>
-                  </List.Item>)
-              )}
+                  </List.Item>))
+              }
           </List>
           {quote}
         </div>)
