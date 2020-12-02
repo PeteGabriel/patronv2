@@ -36,7 +36,7 @@ class Contact extends Component {
             <Grid.Column floated='right' textAlign='center'>
               <div style={{marginLeft: '10%', marginRight: '10%'}}>
                 <p className="high_class_text">
-                Contacte nos con cualquer duda para que juntos hagamos de ese dia un evento impecable 
+                Contáctenos con cualquier duda para que juntos hagamos de ese dia un evento impecable
                 y de sueño.
                 </p>  
                 <div style={{display:'inline-grid'}}>

@@ -89,7 +89,7 @@ class ImageTextWarp extends Component {
       </p>
 
       <p className="high_class_text" style={{marginTop: '2%', color: LIGHT_DARK}}>
-        <i>Un sitio idílico donde podrá celebrar con todo tipo de comodidades</i>
+        <i>Un sitio idílico donde podrás celebrar con todo tipo de comodidades</i>
         <br/>
         <i>tu evento deseado.</i>
       </p>
