@@ -18,9 +18,10 @@ class ImageTextWarp extends Component {
       require("../assets/finca/1.jpg"),
       require("../assets/finca/2.jpg"),
       require("../assets/finca/3.jpg"),
+      require("../assets/finca/7.jpg"),
       require("../assets/finca/4.jpg"),
       require("../assets/finca/5.jpg"),
-      require("../assets/finca/6.jpg"),
+      require("../assets/finca/6.jpg")
     ]
   }
   

@@ -108,7 +108,7 @@ const photos = [
     height: 3
   },
   {
-    src: "https://source.unsplash.com/zh7GEuORbUw/600x799",
+    src: require("./../assets/slideshow/vertical_6.jpg"),
     width: 3,
     height: 4
   },
@@ -123,12 +123,12 @@ const photos = [
     height: 3
   },
   {
-    src: "https://source.unsplash.com/XiDA78wAZVw/600x799",
+    src: require("./../assets/slideshow/vertical_5.jpg"),
     width: 3,
     height: 4
   },
   {
-    src: "https://source.unsplash.com/x8xJpClTvR0/800x599",
+    src: require("../assets/slideshow/rect_4.jpg"),
     width: 4,
     height: 3
   }
