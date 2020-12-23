@@ -3,6 +3,7 @@ import { Segment, Container } from 'semantic-ui-react';
 import { PURPLE_RAIN, PINK, LIGHT_ORANGE} from '../styles/colors';
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
+import ImageKit from "imagekit-javascript"
 
 class ImageSlideshow extends Component {
 
@@ -75,60 +76,96 @@ const photosSegmentStyle = {
   paddingBottom: 10
 }
 
+const imagekit = new ImageKit({
+  urlEndpoint : process.env.REACT_APP_CDN_HOST,
+  publicKey : process.env.REACT_APP_CDN_PUBLIC_API_KEY
+});
 
 const photos = [
   {
-    src: require("./../assets/slideshow/rect_2.jpg"),
+    src: imagekit.url({
+      path : "/slideshow/rect_2_0F2BVPgWZeRdN.jpg",
+      transformation : [{ "height" : "0.7", "width" : "0.8"}]
+    }),
     width: 4,
     height: 3
   },
   {
-    src: require("./../assets/slideshow/square_1.jpg"),
+    src: imagekit.url({
+      path : "/slideshow/square_1_esTgDUOixTciy.jpg",
+      transformation : [{ "height" : "0.3", "width" : "0.3"}]
+    }),
     width: 1,
     height: 1
   },
   {
-    src: require("./../assets/slideshow/vertical_1.jpg"),
+    src: imagekit.url({
+      path : "/slideshow/vertical_1_pMRTsVf0_Z-Eu.jpg",
+      transformation : [{ "height" : "0.8"}]
+    }),
     width: 3,
     height: 4
   },
   {
-    src: require("./../assets/slideshow/vertical_2.jpg"),
+    src: imagekit.url({
+      path : "/slideshow/vertical_2_TdiGFPV8Xwp7.jpg",
+      transformation : [{ "height" : "0.5"}]
+    }),
     width: 3,
     height: 4
   },
   {
-    src: require("./../assets/slideshow/vertical_3.jpg"),
+    src: imagekit.url({
+      path : "/slideshow/vertical_3_cPqNHZyLqbI_.jpg",
+      transformation : [{ "height" : "0.2", "width" : "0.3"}]
+    }),
     width: 3,
     height: 4
   },
   {
-    src: require("./../assets/slideshow/square_5.jpg"),
+    src: imagekit.url({
+      path : "/slideshow/square_5_vTkdtvLK75aH.jpg",
+    }),
     width: 4,
     height: 3
   },
   {
-    src: require("./../assets/slideshow/vertical_6.jpg"),
+    src: imagekit.url({
+      path : "/slideshow/vertical_6_O8i4kotF2HM-m.jpg",
+      transformation : [{ "height" : "0.8"}]
+    }),
     width: 3,
     height: 4
   },
   {
-    src: require("./../assets/slideshow/square_6.jpg"),
+    src: imagekit.url({
+      path : "/slideshow/square_6_XDvKz7uHGk11u.jpg",
+      transformation : [{ "height" : "0.9", "width" : "0.8"}]
+    }),
     width: 5,
     height: 3
   },
   {
-    src: require("./../assets/slideshow/rect_3.jpg"),
+    src: imagekit.url({
+      path : "/slideshow/rect_3_bnrhnQKrI7ZTw.jpg",
+      transformation : [{ "height" : "0.4", "width" : "0.4"}]
+    }),
     width: 4,
     height: 3
   },
   {
-    src: require("./../assets/slideshow/vertical_5.jpg"),
+    src: imagekit.url({
+      path : "/slideshow/vertical_5_UMFCEXYioohws.jpg",
+      transformation : [{ "height" : "0.6"}]
+    }),
     width: 3,
     height: 4
   },
   {
-    src: require("../assets/slideshow/rect_4.jpg"),
+    src: imagekit.url({
+      path : "/slideshow/rect_4_y6BKphCMd1Lx.jpg",
+      transformation : [{ "height" : "0.3", "width" : "0.4"}]
+    }),
     width: 4,
     height: 3
   }
