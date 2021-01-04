@@ -2,8 +2,22 @@ import React, { Component } from 'react';
 import ImageContainer  from "./imageContainer";
 import {List, Responsive} from 'semantic-ui-react'
 import {LIGHT_DARK} from '../styles/colors';
+import ImageKit from "imagekit-javascript"
 
 class ImageTextWarp extends Component {
+
+  imagekit = null
+
+  constructor() {
+    super()
+    this.imagekit = new ImageKit({
+      urlEndpoint : process.env.REACT_APP_CDN_HOST,
+      publicKey : process.env.REACT_APP_CDN_PUBLIC_API_KEY
+    })
+
+    this._getImages = this._getImages.bind(this)
+    this._getImagesInReverse = this._getImagesInReverse.bind(this)
+  }
 
   render(){
     let reverse = this.props.toReverse
@@ -15,26 +29,26 @@ class ImageTextWarp extends Component {
 
   _getImages(){
     return [
-      require("../assets/finca/1.jpg"),
-      require("../assets/finca/2.jpg"),
-      require("../assets/finca/3.jpg"),
-      require("../assets/finca/7.jpg"),
-      require("../assets/finca/4.jpg"),
-      require("../assets/finca/5.jpg"),
-      require("../assets/finca/6.jpg")
+      this.imagekit.url({ path : "/finca/1_NIPBDBcekqbuX.jpg" }),
+      this.imagekit.url({ path : "/finca/2_buj-75Pnb2k4.jpg" }),
+      this.imagekit.url({ path : "/finca/3_l9HKsShhbmnVF.jpg" }),
+      this.imagekit.url({ path : "/finca/7_C4bxuD7cS8Xk.jpg" }),
+      this.imagekit.url({ path : "/finca/4_YoP0oHVdoZphA.jpg" }),
+      this.imagekit.url({ path : "/finca/5_LCLMLv_8SRZuU.jpg" }),
+      this.imagekit.url({ path : "/finca/6_BSev22KpQyksg.jpg" })
     ]
   }
   
   _getImagesInReverse(){
     return [
-      require("../assets/outside/1.jpg"),
-      require("../assets/outside/2.jpg"),
-      require("../assets/outside/3.jpg"),
-      require("../assets/outside/4.jpg"),
-      require("../assets/outside/5.jpg"),
-      require("../assets/outside/6.jpg"),
-      require("../assets/outside/7.jpg"),
-      require("../assets/outside/8.jpg"),
+      this.imagekit.url({ path : "/outside/1_JuqMP4gk6b3-c.jpg" }),
+      this.imagekit.url({ path : "/outside/2_R-C4SJz3QRJ2e.jpg" }),
+      this.imagekit.url({ path : "/outside/3_d4cltf33uwI6.jpg" }),
+      this.imagekit.url({ path : "/outside/4_mNzVKJN-BVNe.jpg" }),
+      this.imagekit.url({ path : "/outside/5_BxLI0byx5_PX5.jpg" }),
+      this.imagekit.url({ path : "/outside/6_GKrY3ia577oDI.jpg" }),
+      this.imagekit.url({ path : "/outside/7_WXac-XGyJV9WZ.jpg" }),
+      this.imagekit.url({ path : "/outside/8_ZE5Xe_nZ0hsC.jpg" })
     ]
   }
 
