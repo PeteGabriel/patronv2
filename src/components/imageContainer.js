@@ -19,35 +19,23 @@ class ImageContainer extends Component {
 	
 
   render() {
-		let carouselBuilder = this.isDesktopView ? this._buildCarouselForDesktop : this._buildCarouselForMobile
+  	let carouselBuilder = this.isDesktopView ? this._buildCarouselForDesktop : this._buildCarouselForMobile
 		
-	  if (this.props.toReverse){
-			return this._handleReverseLayout(this.props.imgs,
-			  (imgs) => carouselBuilder(imgs), 
-			  () => this.props.content()
-			)
-		}
-		return this._handleNormalLayout(
-			this.props.imgs, 
-			(imgs) => carouselBuilder(imgs), 
-			() => this.props.content()
+  	if (this.props.toReverse){
+		return this._handleReverseLayout(this.props.imgs,
+		  (imgs) => carouselBuilder(imgs),
+		  () => this.props.content()
 		)
 	}
+	return this._handleNormalLayout(
+		this.props.imgs,
+		(imgs) => carouselBuilder(imgs),
+		() => this.props.content())
+  }
 	
-	_getGridRowHeight(){
-    
-      return window.innerHeight
-    
-	}
-
-	_getGridRowHeightForReverse(){
-    if (this.isDesktopView){
-      return window.innerHeight
-    }else {
-			//only 80% of the view should be enough
-			return (window.innerHeight * 80) / 100
-    }
-	}
+  _getGridRowHeight(){
+  	return window.innerHeight
+  }
 
   _handleNormalLayout(imgs, carouselBuilder, contentBuilder) {
 		let style = Object.assign({}, containerStyle, {background: LIGHT_ORANGE})
