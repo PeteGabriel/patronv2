@@ -115,8 +115,8 @@ class ImageContainer extends Component {
 						</div>)
 				}}
 				swiping>
-				{imgs.map((img) => 
-						<img alt="img" 
+				{imgs.map((img, idx) =>
+						<img alt={"Carousel image number " + idx}
 							key={img}
 							src={img}
 							onLoad={this._handleLoadImage} 
@@ -154,8 +154,8 @@ class ImageContainer extends Component {
 						</div>)
 				}}
 				swiping>
-				{imgs.map((img) => 
-						<img alt="img" 
+				{imgs.map((img, idx) =>
+						<img alt={"Carousel image number " + idx}
 							key={img}
 							src={img}
 							onLoad={this._handleLoadImage} 
