@@ -27,16 +27,6 @@ html {
   padding-right: 2%;
 }
 
-.header_menu_title {
-  font-family: 'Elsie', sans-serif;
-  font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-  line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
-  text-decoration: none;
-}
-.header_menu_title:hover {
-  cursor: pointer;
-}
-
 .high_class_text {
   font-family: 'Montserrat', sans-serif;
   font-size: calc(14px + (22 - 14) * ((100vw - 300px) / (1600 - 300)));
@@ -73,6 +63,3 @@ a {
   cursor: pointer;
 }
 
-.slider {
-  outline: none !important;
-}
