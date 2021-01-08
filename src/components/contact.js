@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Segment, Grid, Icon, Responsive } from 'semantic-ui-react';
 import GoogleMapReact from 'google-map-react';
+import Marker from "./map/marker";
 
 class Contact extends Component {
 
@@ -29,6 +30,8 @@ class Contact extends Component {
                   defaultCenter={this.props.center}
                   defaultZoom={this.props.zoom}
                   options={this._getMapOptions} >
+
+                  <Marker lat={36.142170} lng={-5.467703} />
                   
                 </GoogleMapReact>
               </div>
