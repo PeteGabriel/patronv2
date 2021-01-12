@@ -6,15 +6,25 @@ class Contact extends Component {
 
   constructor(props){
     super(props)
-    this.isDesktopView = window.innerWidth >= Responsive.onlyMobile.maxWidth
+    this.state = {
+      isDesktopView: window.innerWidth >= Responsive.onlyMobile.maxWidth,
+      places: [
+        {
+          name: "El Patron Celebraciones",
+          lat: 36.227472,
+          lng: -5.464994
+        }
+      ]
+    }
   }
 
+  //Specifies the default values for props
   static defaultProps = {
     center: {
-      lat: 36.227209,
-      lng: -5.465079
+      lat: 36.171217,
+      lng: -5.456745
     },
-    zoom: 18
+    zoom: 11
   };
 
   render() {
@@ -28,8 +38,9 @@ class Contact extends Component {
                   bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_KEY }}
                   defaultCenter={this.props.center}
                   defaultZoom={this.props.zoom}
-                  options={this._getMapOptions} >
-                  
+                  options={this._getMapOptions}
+                  yesIWantToUseGoogleMapApiInternals
+                  onGoogleApiLoaded={({ map, maps }) => this._handleApiLoaded(map, maps, this.state.places)}>
                 </GoogleMapReact>
               </div>
             </Grid.Column>
@@ -52,7 +63,7 @@ class Contact extends Component {
   }
 
   _getPhoneData(){
-    let iconSize = this.isDesktopView ? 'large' : 'small'
+    let iconSize = this.state.isDesktopView ? 'large' : 'small'
     return (
       <div style={{display: 'inline-flex', margin:5, alignItems:'center'}}>
         <Icon name="phone" size={iconSize}/>
@@ -62,7 +73,7 @@ class Contact extends Component {
   }
 
   _getEmailData(){
-    let iconSize = this.isDesktopView ? 'large' : 'small'
+    let iconSize = this.state.isDesktopView ? 'large' : 'small'
     return (
       <div style={{display: 'inline-flex', margin:5, alignItems:'center'}}>
         <Icon name="mail" size={iconSize}/>
@@ -72,10 +83,10 @@ class Contact extends Component {
   }
 
 
-  _getMapOptions = (maps) => {
+  _getMapOptions = () => {
     return {
         streetViewControl: false,
-        scaleControl: true,
+        scaleControl: false,
         fullscreenControl: false,
         styles: [{
             featureType: "poi.business",
@@ -86,14 +97,47 @@ class Contact extends Component {
         }],
         gestureHandling: "greedy",
         disableDoubleClickZoom: true,
-        minZoom: 13,
-        maxZoom: 19,
-        mapTypeControl: true,
-        mapTypeId: maps.MapTypeId.SATELLITE,
-        zoomControl: true,
+        minZoom: 11,
+        maxZoom: 11,
+        zoomControl: false,
         clickableIcons: false
     };
   }
+
+  _handleApiLoaded = (map, maps, places) => {
+    const markers = [];
+    const infoWindows = []
+
+    places.forEach((place) => {
+      markers.push(new maps.Marker({
+        position: {
+          lat: place.lat,
+          lng: place.lng,
+        },
+        map,
+      }));
+
+      infoWindows.push(new maps.InfoWindow({
+        content: this._getInfoWindowString(place),
+      }));
+    });
+
+    markers.forEach((marker, i) => {
+      infoWindows[i].open(map, marker);
+      marker.addListener('click', () => {
+        infoWindows[i].open(map, marker);
+      });
+    });
+
+  };
+
+
+  _getInfoWindowString = (place) => `
+      <div style="font-size: 16px;">
+        ${place.name}
+      </div>`;
+
+
 }
 
 export default Contact;
