@@ -14,18 +14,18 @@ class Contact extends Component {
           lat: 36.227472,
           lng: -5.464994
         }
-      ]
+      ],
+      desktopCenterCoords: {
+        lat: 36.171217,
+        lng: -5.456745
+      },
+      mobileCenterCoords:{
+        lat: 36.164995,
+        lng: -5.403616
+      },
+      initialZoom: 11
     }
   }
-
-  //Specifies the default values for props
-  static defaultProps = {
-    center: {
-      lat: 36.171217,
-      lng: -5.456745
-    },
-    zoom: 11
-  };
 
   render() {
     return (
@@ -36,8 +36,8 @@ class Contact extends Component {
               <div style={{ height: '60vh', width: '100%'}}>
                 <GoogleMapReact
                   bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_KEY }}
-                  defaultCenter={this.props.center}
-                  defaultZoom={this.props.zoom}
+                  defaultCenter={this.state.isDesktopView ? this.state.desktopCenterCoords : this.state.mobileCenterCoords}
+                  defaultZoom={this.state.initialZoom}
                   options={this._getMapOptions}
                   yesIWantToUseGoogleMapApiInternals
                   onGoogleApiLoaded={({ map, maps }) => this._handleApiLoaded(map, maps, this.state.places)}>
@@ -123,7 +123,7 @@ class Contact extends Component {
     });
 
     markers.forEach((marker, i) => {
-      infoWindows[i].open(map, marker);
+      //infoWindows[i].open(map, marker);
       marker.addListener('click', () => {
         infoWindows[i].open(map, marker);
       });
