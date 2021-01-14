@@ -20,8 +20,8 @@ class Contact extends Component {
         lng: -5.456745
       },
       mobileCenterCoords:{
-        lat: 36.164995,
-        lng: -5.403616
+        lat: 36.165775,
+        lng: -5.417816
       },
       initialZoom: 11
     }
@@ -123,7 +123,9 @@ class Contact extends Component {
     });
 
     markers.forEach((marker, i) => {
-      //infoWindows[i].open(map, marker);
+      if (this.state.isDesktopView){
+        infoWindows[i].open(map, marker);
+      }
       marker.addListener('click', () => {
         infoWindows[i].open(map, marker);
       });
