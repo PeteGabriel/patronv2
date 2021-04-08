@@ -132,7 +132,7 @@ class ImageContainer extends Component {
     _buildCarouselForDesktop(imgs) {
         return (
             <Carousel
-                style={{border: 0, boxShadow: 'none', flexGrow: 1, maxWidth: '100%'}}
+                style={{border: 0, outline: 'none', boxShadow: 'none', flexGrow: 1, maxWidth: '100%'}}
                 ref={ref => {
                     this.carouselRef = ref;
                 }}
