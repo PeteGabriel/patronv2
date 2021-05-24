@@ -51,8 +51,7 @@ class Contact extends Component {
                             <div style={{marginLeft: '10%', marginRight: '10%'}}>
                                 <p className="high_class_text">
                                     Contáctenos con cualquier duda para que juntos hagamos de ese dia un evento
-                                    impecable
-                                    y de sueño.
+                                    impecable y de sueño.
                                 </p>
                                 <div style={{display: 'inline-grid'}}>
                                     {this._getPhoneData()}

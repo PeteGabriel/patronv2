@@ -1,20 +1,18 @@
 import React, {Component} from 'react'
-import {Dropdown, DropdownMenu, Flag} from "semantic-ui-react";
+import {Dropdown, DropdownMenu} from "semantic-ui-react";
 
 class Header extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            languageSelected: 'spain',
-            supportedLanguages: [ 'spain', 'england']
+            supportedLanguages: [ 'es', 'en']
         }
         this._onLanguageChange = this._onLanguageChange.bind(this)
     }
 
     _onLanguageChange(_, item){
-        console.log("Language changed: " + item.flag.name)
-        this.setState({languageSelected: item.flag.name})
+        this.state.onLanguageChange(item.flag.name)
     }
 
     render() {
@@ -25,7 +23,7 @@ class Header extends Component {
                           className='icon'
                           floating
                           item
-                          value={this.state.languageSelected}>
+                          value='Spain'>
                     <DropdownMenu>
                         {this.state.supportedLanguages.map((value) =>
                             <Dropdown.Item

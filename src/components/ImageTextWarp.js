@@ -8,8 +8,9 @@ class ImageTextWarp extends Component {
 
     imagekit = null
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
+        console.log("ImageTextWarp", this.props.currentLang)
         this.imagekit = new ImageKit({
             urlEndpoint: process.env.REACT_APP_CDN_HOST,
             publicKey: process.env.REACT_APP_CDN_PUBLIC_API_KEY
