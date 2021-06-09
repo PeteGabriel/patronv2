@@ -10,6 +10,9 @@ class ImageTextWarp extends Component {
 
     constructor() {
         super()
+        this.state = {
+            isDesktopView: window.innerWidth >= Responsive.onlyMobile.maxWidth,
+        }
         this.imagekit = new ImageKit({
             urlEndpoint: process.env.REACT_APP_CDN_HOST,
             publicKey: process.env.REACT_APP_CDN_PUBLIC_API_KEY
@@ -17,6 +20,7 @@ class ImageTextWarp extends Component {
 
         this._getImages = this._getImages.bind(this)
         this._getImagesInReverse = this._getImagesInReverse.bind(this)
+        this._reverseContent = this._reverseContent.bind(this)
     }
 
     render() {
@@ -63,18 +67,26 @@ class ImageTextWarp extends Component {
             "Amplias barbacoas y parrillas.",
             "Plaza de toros."
         ]
-        let quote = window.innerWidth >= Responsive.onlyMobile.maxWidth ?
-            (<p className="quote" style={{position: "absolute", right: 50, marginTop: 70}}>
-                <i>"Una atención personal y el interés por el detalle."</i>
-            </p>) : null
 
+        let quoteShouldAppear = window.innerWidth >= Responsive.onlyMobile.maxWidth
+        let quote = null
+        if (quoteShouldAppear) {
+            quote = (
+                <p className="quote" style={{position: "absolute", right: 50, marginTop: 70}}>
+                    <i>"Una atención personal y el interés por el detalle."</i>
+                </p>
+            )
+        } 
+
+        let deviateList = this.state.isDesktopView ? 0 : 20
+        
         return (
             <div style={{margin: 'auto', position: "relative", marginRight: 0, textAlign: "left"}}>
                 <p className="high_class_text" style={{color: LIGHT_DARK}}>
                     Tenemos una amplia oferta de servicios.
                 </p>
 
-                <List style={{marginLeft: 0}} className="list_of_things">
+                <List style={{marginLeft: deviateList}} className="list_of_things">
                     {
                         content.map((line, idx) => (
                             <List.Item key={idx}>
