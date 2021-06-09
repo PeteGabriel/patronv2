@@ -29,7 +29,7 @@ class Contact extends Component {
 
     render() {
         return (
-            <Segment fluid style={Object.assign({}, segmentStyle, {height: window.innerHeight})}>
+            <Segment style={Object.assign({}, segmentStyle, {height: window.innerHeight})}>
                 <Grid columns={2} stackable centered textAlign='center'>
                     <Grid.Row verticalAlign='middle'>
                         <Grid.Column floated='left' style={{marginTop: '10%', marginBottom: '10%'}}>
@@ -127,7 +127,6 @@ class Contact extends Component {
         });
 
         markers.forEach((marker, i) => {
-            infoWindows[i].open(map, marker);
             marker.addListener('click', () => {
                 infoWindows[i].open(map, marker);
             });

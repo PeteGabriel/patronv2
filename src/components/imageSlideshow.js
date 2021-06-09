@@ -33,7 +33,7 @@ class ImageSlideshow extends Component {
             overflowX: 'hidden'
         })
         return (
-            <Segment fluid style={style}>
+            <Segment style={style}>
                 <Container style={{paddingTop: 40, marginBottom: 50, border: 0, boxShadow: 'none'}}>
                     <h2 className="content_text" style={{color: PURPLE_RAIN, marginBottom: 8}}>
                         Siguenos y comparte tu experiencia
