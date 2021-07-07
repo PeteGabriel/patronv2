@@ -3,17 +3,7 @@ import {Dropdown, DropdownMenu} from "semantic-ui-react";
 
 class Header extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            supportedLanguages: [ 'es', 'en']
-        }
-        this._onLanguageChange = this._onLanguageChange.bind(this)
-    }
-
-    _onLanguageChange(_, item){
-        this.state.onLanguageChange(item.flag.name)
-    }
+    static supportedLanguages = [ 'es', 'en']
 
     render() {
         return (
@@ -25,11 +15,11 @@ class Header extends Component {
                           item
                           value='Spain'>
                     <DropdownMenu>
-                        {this.state.supportedLanguages.map((value) =>
+                        {Header.supportedLanguages.map((value) =>
                             <Dropdown.Item
                                 key={value}
                                 flag={{ name: value }}
-                                onClick={this._onLanguageChange}/>
+                                onClick={() => this._onLanguageChange(value)}/>
                         )}
                     </DropdownMenu>
                 </Dropdown>

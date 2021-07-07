@@ -6,6 +6,7 @@ import Footer from './components/footer';
 import ImageTextWarp from './components/ImageTextWarp';
 import ImageSlideshow from './components/imageSlideshow';
 import Contact from './components/contact';
+import i18n from './i18n';
 
 class App extends Component {
     
@@ -20,6 +21,7 @@ class App extends Component {
     //use this function to update the current selected language
     updateLang(lang){
       this.setState({languageSelected: lang})
+      i18n.changeLanguage(lang)
     }
 
     render() {
@@ -27,8 +29,8 @@ class App extends Component {
         <Responsive minWidth={Responsive.onlyMobile.minWidth} className="App">
             <Segment textAlign='center' style={{padding: '1em 0em'}} vertical>
                 <Header onLanguageChange={this.updateLang} />
-                <ImageTextWarp currentLang={this.state.languageSelected}/>
-                <ImageTextWarp toReverse currentLang={this.state.languageSelected}/>
+                <ImageTextWarp />
+                <ImageTextWarp toReverse />
                 <ImageSlideshow/>
                 <Contact/>
                 <Footer/>

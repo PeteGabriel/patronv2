@@ -2,15 +2,21 @@ import React, {Component} from 'react';
 import ImageContainer from "./imageContainer";
 import {List, Responsive} from 'semantic-ui-react'
 import {LIGHT_DARK} from '../styles/colors';
-import ImageKit from "imagekit-javascript"
+import ImageKit from "imagekit-javascript";
+import i18n from '../i18n';
 
 class ImageTextWarp extends Component {
 
     imagekit = null
 
+
     constructor(props) {
         super(props)
-        console.log("ImageTextWarp", this.props.currentLang)
+
+        this.state = {
+            isDesktopView: window.innerWidth >= Responsive.onlyMobile.maxWidth,
+        }
+
         this.imagekit = new ImageKit({
             urlEndpoint: process.env.REACT_APP_CDN_HOST,
             publicKey: process.env.REACT_APP_CDN_PUBLIC_API_KEY
@@ -18,6 +24,7 @@ class ImageTextWarp extends Component {
 
         this._getImages = this._getImages.bind(this)
         this._getImagesInReverse = this._getImagesInReverse.bind(this)
+        this._reverseContent = this._reverseContent.bind(this)
     }
 
     render() {
@@ -55,27 +62,35 @@ class ImageTextWarp extends Component {
 
     _reverseContent() {
         const content = [
-            "Zona ampla de parking.",
-            "Carpa con barra y pista de baile con 250 personas sentadas.",
-            "Barra exterior de mas de 15 metros.",
-            "Zona de arboleda con mesas y sillones.",
-            "Zona verde perfecta para session de fotos.",
-            "Cocina completa para ayudar al catering.",
-            "Amplias barbacoas y parrillas.",
-            "Plaza de toros."
+            i18n.t('text_wrapper.content_reverse.point_1'),
+            i18n.t('text_wrapper.content_reverse.point_2'),
+            i18n.t('text_wrapper.content_reverse.point_3'),
+            i18n.t('text_wrapper.content_reverse.point_4'),
+            i18n.t('text_wrapper.content_reverse.point_5'),
+            i18n.t('text_wrapper.content_reverse.point_6'),
+            i18n.t('text_wrapper.content_reverse.point_7'),
+            i18n.t('text_wrapper.content_reverse.point_8')
         ]
-        let quote = window.innerWidth >= Responsive.onlyMobile.maxWidth ?
-            (<p className="quote" style={{position: "absolute", right: 50, marginTop: 70}}>
-                <i>"Una atención personal y el interés por el detalle."</i>
-            </p>) : null
 
+        let quoteShouldAppear = window.innerWidth >= Responsive.onlyMobile.maxWidth
+        let quote = null
+        if (quoteShouldAppear) {
+            quote = (
+                <p className="quote" style={{position: "absolute", right: 50, marginTop: 70}}>
+                    <i>{i18n.t('text_wrapper.content_reverse.quote')}</i>
+                </p>
+            )
+        } 
+
+        let deviateList = this.state.isDesktopView ? 0 : 20
+        
         return (
             <div style={{margin: 'auto', position: "relative", marginRight: 0, textAlign: "left"}}>
                 <p className="high_class_text" style={{color: LIGHT_DARK}}>
-                    Tenemos una amplia oferta de servicios.
+                    {i18n.t('text_wrapper.content_reverse.title')}
                 </p>
 
-                <List style={{marginLeft: 0}} className="list_of_things">
+                <List style={{marginLeft: deviateList}} className="list_of_things">
                     {
                         content.map((line, idx) => (
                             <List.Item key={idx}>
@@ -97,15 +112,15 @@ class ImageTextWarp extends Component {
         return (
             <span>
       <p style={{color: LIGHT_DARK}} className='high_class_text'>
-        <i>Preciosa finca a las puertas del</i>
+        <i>{i18n.t('text_wrapper.content.phrase_1')}</i>
         <br/>
-        <i>Parque de Los Alcornocales, en plena naturaleza.</i>
+        <i>{i18n.t('text_wrapper.content.phrase_2')}</i>
       </p>
 
       <p className="high_class_text" style={{marginTop: '2%', color: LIGHT_DARK}}>
-        <i>Un sitio idílico donde podrás celebrar con todo tipo de comodidades</i>
+        <i>{i18n.t('text_wrapper.content.phrase_3')}</i>
         <br/>
-        <i>tu evento deseado.</i>
+        <i>{i18n.t('text_wrapper.content.phrase_4')}</i>
       </p>
     </span>)
     }
