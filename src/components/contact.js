@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Grid, Icon, Responsive, Segment} from 'semantic-ui-react';
 import GoogleMapReact from 'google-map-react';
+import i18n from './../i18n';
 
 class Contact extends Component {
 
@@ -61,8 +62,7 @@ class Contact extends Component {
                         <Grid.Column floated='right' textAlign='center'>
                             <div style={{marginLeft: finalMarginValue, marginRight: finalMarginValue }}>
                                 <p className="high_class_text">
-                                    Contáctenos con cualquier duda para que juntos hagamos de ese dia un evento
-                                    impecable y de sueño.
+                                    {i18n.t('contact.content')}
                                 </p>
                                 <div style={{display: 'inline-grid'}}>
                                     {this._getPhoneData()}
