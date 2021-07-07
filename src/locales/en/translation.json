@@ -1,1 +1,22 @@
-{}
+{
+    "text_wrapper": {
+        "content": {
+            "phrase_1": "Beautyful place next to Parque de Los Alcornocales,",
+            "phrase_2": "right where nature begins.",
+            "phrase_3": "An idyllic place where you can celebrate with all commodities",
+            "phrase_4": "your most desired event."
+        },
+        "content_reverse": {
+            "title": "We have plenty to offer:",
+            "point_1":"Pleanty of parking space.",
+            "point_2":"Closed event room with capacity for 250 seated guests.",
+            "point_3":"Large open air bar.",
+            "point_4":"Outside tables for an open air event.",
+            "point_5":"Green areas perfect for photo shooting sessions.",
+            "point_6":"Catering can make use of a professional kitchen fully equipped.",
+            "point_7":"Ready for barbacues",
+            "point_8":"Small bullring !",
+            "quote":"Let us handle all of the details, so that you can focus on the memories"
+        }
+    }
+}

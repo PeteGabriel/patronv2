@@ -1,1 +1,26 @@
-{}
+{
+    "text_wrapper": {
+        "content": {
+            "phrase_1": "Preciosa finca a las puertas del",
+            "phrase_2": "Parque de Los Alcornocales, en plena naturaleza.",
+            "phrase_3": "Un sitio idílico donde podrás celebrar con todo tipo de comodidades",
+            "phrase_4": "tu evento deseado."
+        },
+        "content_reverse": {
+            "title": "Tenemos una amplia oferta de servicios:",
+            "point_1":"Zona ampla de parking.",
+            "point_2":"Carpa con barra y pista de baile con 250 personas sentadas.",
+            "point_3":"Barra exterior de mas de 15 metros.",
+            "point_4":"Zona de arboleda con mesas y sillones.",
+            "point_5":"Zona verde perfecta para session de fotos.",
+            "point_6":"Cocina completa para ayudar al catering.",
+            "point_7":"Amplias barbacoas y parrillas.",
+            "point_8":"Plaza de toros.",
+            "quote":"Una atención personal y el interés por el detalle."
+        }
+    }
+}
+
+
+
+

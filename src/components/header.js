@@ -19,7 +19,7 @@ class Header extends Component {
                             <Dropdown.Item
                                 key={value}
                                 flag={{ name: value }}
-                                onClick={() => this._onLanguageChange(value)}/>
+                                onClick={() => this.props.onLanguageChange(value)}/>
                         )}
                     </DropdownMenu>
                 </Dropdown>
