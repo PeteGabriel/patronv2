@@ -3,7 +3,9 @@ import {Container, Segment} from 'semantic-ui-react';
 import {LIGHT_ORANGE, PINK, PURPLE_RAIN} from '../styles/colors';
 import Gallery from "react-photo-gallery";
 import Carousel, {Modal, ModalGateway} from "react-images";
-import ImageKit from "imagekit-javascript"
+import ImageKit from "imagekit-javascript";
+import i18n from './../i18n';
+
 
 class ImageSlideshow extends Component {
 
@@ -36,7 +38,7 @@ class ImageSlideshow extends Component {
             <Segment style={style}>
                 <Container style={{paddingTop: 40, marginBottom: 50, border: 0, boxShadow: 'none'}}>
                     <h2 className="content_text" style={{color: PURPLE_RAIN, marginBottom: 8}}>
-                        Siguenos y comparte tu experiencia
+                        {i18n.t('slideshow.title')}
                     </h2>
                     <p className="high_class_text">
                         <a style={{color: PINK}}
