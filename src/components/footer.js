@@ -59,7 +59,7 @@ class Footer extends Component {
                 <a href="https://www.instagram.com/elpatroneventos" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon style={{"color": "#3f729b"}} icon={faInstagram} fixedWidth size="2x"/>
                 </a>
-                <a href="" target="_blank" onClick={this._handleWhatsAppMsg} rel="noopener noreferrer">
+                <a href="www.example.com" target="_blank" onClick={this._handleWhatsAppMsg} rel="noopener noreferrer">
                     <FontAwesomeIcon style={{"color": "green"}} icon={faWhatsapp} fixedWidth size="2x"/>
                 </a>
             </div>

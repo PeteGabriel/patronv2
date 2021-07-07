@@ -8,6 +8,9 @@ class ImageContainer extends Component {
 
     constructor(props) {
         super(props)
+        this.state = {
+            isDesktopView: window.innerWidth >= Responsive.onlyMobile.maxWidth
+        }
 
         this.carouselRef = null
         this.isDesktopView = window.innerWidth >= Responsive.onlyMobile.maxWidth
@@ -38,6 +41,12 @@ class ImageContainer extends Component {
     }
 
     _handleNormalLayout(imgs, carouselBuilder, contentBuilder) {
+        const containerStyle = {
+            paddingRight:  this.state.isDesktopView ? '4%' : '0%',
+            paddingLeft: this.state.isDesktopView ? '4%' : '0%',
+            alignItems: 'center',
+            overflow: 'auto',
+        }
         let style = Object.assign({}, containerStyle, {background: LIGHT_ORANGE})
         if (this.isDesktopView) {
             return (
@@ -71,11 +80,22 @@ class ImageContainer extends Component {
     }
 
     _handleReverseLayout(imgs, carouselBuilder, contentBuilder) {
-        let style = Object.assign({}, containerStyle, {border: 0, boxShadow: 0, margin: 0})
+        const containerStyle = {
+            paddingRight:  this.state.isDesktopView ? '4%' : '0%',
+            paddingLeft: this.state.isDesktopView ? '4%' : '0%',
+            alignItems: 'center',
+            overflow: 'auto',
+        }
+        let segmStyle = Object.assign({}, containerStyle, {border: 0, boxShadow: 0, margin: 0})
+        let rowStyle = {
+            height: window.innerHeight, 
+            paddingBottom: this.state.isDesktopView ? '0%' :'20%', 
+            paddingTop: this.state.isDesktopView ? '0%' :'20%'
+        }
         return (
-            <Segment id="imageTextWarpSegmentReverse" style={style}>
+            <Segment id="imageTextWarpSegmentReverse" style={segmStyle}>
                 <Grid columns={2} stackable textAlign='center'>
-                    <Grid.Row verticalAlign='middle' style={{height: window.innerHeight}}>
+                    <Grid.Row verticalAlign='middle' style={rowStyle}>
                         <Grid.Column>
                             {contentBuilder()}
                         </Grid.Column>
@@ -91,7 +111,7 @@ class ImageContainer extends Component {
     _buildCarouselForMobile(imgs) {
         return (
             <Carousel
-                style={{border: 0, boxShadow: 'none', flexGrow: 1, maxWidth: '100%'}}
+                style={{border: 0, outline: 'none', boxShadow: 'none', flexGrow: 1, maxWidth: '100%'}}
                 ref={ref => {
                     this.carouselRef = ref;
                 }}
@@ -176,12 +196,7 @@ class ImageContainer extends Component {
 
 export default ImageContainer
 
-const containerStyle = {
-    paddingRight: '4%',
-    paddingLeft: '4%',
-    alignItems: 'center',
-    overflow: 'auto',
-}
+
 
 ImageContainer.propTypes = {
     content: PropTypes.func.isRequired,

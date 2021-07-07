@@ -28,12 +28,23 @@ class Contact extends Component {
     }
 
     render() {
+        let finalMarginValue = this.state.isDesktopView ? '10%' : '0%'
+
+        const segmentStyle = {
+            border: 0,
+            boxShadow: 0,
+            margin: 0,
+            paddingRight: this.state.isDesktopView ? '4%' : '0%',
+            paddingLeft: this.state.isDesktopView ? '4%' : '0%',
+            alignItems: 'center'
+        }
+
         return (
-            <Segment fluid style={Object.assign({}, segmentStyle, {height: window.innerHeight})}>
+            <Segment style={Object.assign({}, segmentStyle, {height: window.innerHeight})}>
                 <Grid columns={2} stackable centered textAlign='center'>
                     <Grid.Row verticalAlign='middle'>
-                        <Grid.Column floated='left' style={{marginTop: '10%', marginBottom: '10%'}}>
-                            <div style={{height: '60vh', width: '100%'}}>
+                        <Grid.Column floated='left' style={{marginTop: finalMarginValue, marginBottom: finalMarginValue}}>
+                            <div style={{height: '65vh', width: '100%'}}>
                                 <GoogleMapReact
                                     bootstrapURLKeys={{key: process.env.REACT_APP_MAPS_KEY}}
                                     defaultCenter={this.props.center}
@@ -48,7 +59,7 @@ class Contact extends Component {
                             </div>
                         </Grid.Column>
                         <Grid.Column floated='right' textAlign='center'>
-                            <div style={{marginLeft: '10%', marginRight: '10%'}}>
+                            <div style={{marginLeft: finalMarginValue, marginRight: finalMarginValue }}>
                                 <p className="high_class_text">
                                     Contáctenos con cualquier duda para que juntos hagamos de ese dia un evento
                                     impecable y de sueño.
@@ -66,21 +77,19 @@ class Contact extends Component {
     }
 
     _getPhoneData() {
-        let iconSize = this.state.isDesktopView ? 'large' : 'small'
         return (
             <div style={{display: 'inline-flex', margin: 5, alignItems: 'center'}}>
-                <Icon name="phone" size={iconSize}/>
-                <p style={{marginLeft: 10}} className="content_text"><i>(+34) 602 291 866</i></p>
+                <Icon name="phone" size='large'/>
+                <p style={{marginLeft: 10 }} className="content_text"><i>(+34) 602 291 866</i></p>
             </div>
         )
     }
 
     _getEmailData() {
-        let iconSize = this.state.isDesktopView ? 'large' : 'small'
         return (
             <div style={{display: 'inline-flex', margin: 5, alignItems: 'center'}}>
-                <Icon name="mail" size={iconSize}/>
-                <p style={{marginLeft: 10}} className="content_text"><i>eventos@elpatron.es</i></p>
+                <Icon name="mail" size='large'/>
+                <p style={{marginLeft: 10 }} className="content_text"><i>eventos@elpatron.es</i></p>
             </div>
         )
     }
@@ -126,7 +135,6 @@ class Contact extends Component {
         });
 
         markers.forEach((marker, i) => {
-            infoWindows[i].open(map, marker);
             marker.addListener('click', () => {
                 infoWindows[i].open(map, marker);
             });
@@ -145,11 +153,3 @@ class Contact extends Component {
 
 export default Contact;
 
-const segmentStyle = {
-    border: 0,
-    boxShadow: 0,
-    margin: 0,
-    paddingRight: '4%',
-    paddingLeft: '4%',
-    alignItems: 'center'
-}

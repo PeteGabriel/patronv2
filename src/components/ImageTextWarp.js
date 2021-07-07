@@ -9,14 +9,11 @@ class ImageTextWarp extends Component {
 
     imagekit = null
 
-
-    constructor(props) {
-        super(props)
-
+    constructor() {
+        super()
         this.state = {
             isDesktopView: window.innerWidth >= Responsive.onlyMobile.maxWidth,
         }
-
         this.imagekit = new ImageKit({
             urlEndpoint: process.env.REACT_APP_CDN_HOST,
             publicKey: process.env.REACT_APP_CDN_PUBLIC_API_KEY
