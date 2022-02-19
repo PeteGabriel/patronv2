@@ -87,7 +87,7 @@ const imagekit = new ImageKit({
 const photos = [
     {
         src: imagekit.url({
-            path: "/slideshow/rect_2_0F2BVPgWZeRdN.jpg",
+            path: "/slideshow/rect_2.jpg",
             transformation: [{"height": "0.7", "width": "0.8"}]
         }),
         width: 4,
@@ -95,7 +95,7 @@ const photos = [
     },
     {
         src: imagekit.url({
-            path: "/slideshow/square_1_esTgDUOixTciy.jpg",
+            path: "/slideshow/square_1.jpg",
             transformation: [{"height": "0.3", "width": "0.3"}]
         }),
         width: 1,
@@ -103,7 +103,7 @@ const photos = [
     },
     {
         src: imagekit.url({
-            path: "/slideshow/vertical_1_pMRTsVf0_Z-Eu.jpg",
+            path: "/slideshow/vertical_1.jpg",
             transformation: [{"height": "0.8"}]
         }),
         width: 3,
@@ -111,7 +111,7 @@ const photos = [
     },
     {
         src: imagekit.url({
-            path: "/slideshow/vertical_2_TdiGFPV8Xwp7.jpg",
+            path: "/slideshow/vertical_2.jpg",
             transformation: [{"height": "0.5"}]
         }),
         width: 3,
@@ -119,7 +119,7 @@ const photos = [
     },
     {
         src: imagekit.url({
-            path: "/slideshow/vertical_3_cPqNHZyLqbI_.jpg",
+            path: "/slideshow/vertical_3.jpg",
             transformation: [{"height": "0.2", "width": "0.3"}]
         }),
         width: 3,
@@ -127,14 +127,14 @@ const photos = [
     },
     {
         src: imagekit.url({
-            path: "/slideshow/square_5_vTkdtvLK75aH.jpg",
+            path: "/slideshow/square_5.jpg",
         }),
         width: 4,
         height: 3
     },
     {
         src: imagekit.url({
-            path: "/slideshow/vertical_6_O8i4kotF2HM-m.jpg",
+            path: "/slideshow/vertical_6.jpg",
             transformation: [{"height": "0.8"}]
         }),
         width: 3,
@@ -142,7 +142,7 @@ const photos = [
     },
     {
         src: imagekit.url({
-            path: "/slideshow/square_6_XDvKz7uHGk11u.jpg",
+            path: "/slideshow/square_6.jpg",
             transformation: [{"height": "0.9", "width": "0.8"}]
         }),
         width: 5,
@@ -150,7 +150,7 @@ const photos = [
     },
     {
         src: imagekit.url({
-            path: "/slideshow/rect_3_bnrhnQKrI7ZTw.jpg",
+            path: "/slideshow/rect_3.jpg",
             transformation: [{"height": "0.4", "width": "0.4"}]
         }),
         width: 4,
@@ -158,7 +158,7 @@ const photos = [
     },
     {
         src: imagekit.url({
-            path: "/slideshow/vertical_5_UMFCEXYioohws.jpg",
+            path: "/slideshow/vertical_5.jpg",
             transformation: [{"height": "0.6"}]
         }),
         width: 3,
@@ -166,7 +166,7 @@ const photos = [
     },
     {
         src: imagekit.url({
-            path: "/slideshow/rect_4_y6BKphCMd1Lx.jpg",
+            path: "/slideshow/rect_4.jpg",
             transformation: [{"height": "0.3", "width": "0.4"}]
         }),
         width: 4,
