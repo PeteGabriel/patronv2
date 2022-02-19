@@ -45,14 +45,14 @@ class ImageTextWarp extends Component {
 
     _getImagesInReverse() {
         return [
-            this.imagekit.url({path: "/outside/1_JuqMP4gk6b3-c.jpg"}),
-            this.imagekit.url({path: "/outside/2_R-C4SJz3QRJ2e.jpg"}),
-            this.imagekit.url({path: "/outside/3_d4cltf33uwI6.jpg"}),
-            this.imagekit.url({path: "/outside/4_mNzVKJN-BVNe.jpg"}),
-            this.imagekit.url({path: "/outside/5_BxLI0byx5_PX5.jpg"}),
-            this.imagekit.url({path: "/outside/6_GKrY3ia577oDI.jpg"}),
-            this.imagekit.url({path: "/outside/7_WXac-XGyJV9WZ.jpg"}),
-            this.imagekit.url({path: "/outside/8_ZE5Xe_nZ0hsC.jpg"})
+            this.imagekit.url({path: "/outside/1.jpg"}),
+            this.imagekit.url({path: "/outside/2.jpg"}),
+            this.imagekit.url({path: "/outside/3.jpg"}),
+            this.imagekit.url({path: "/outside/4.jpg"}),
+            this.imagekit.url({path: "/outside/5.jpg"}),
+            this.imagekit.url({path: "/outside/6.jpg"}),
+            this.imagekit.url({path: "/outside/7.jpg"}),
+            this.imagekit.url({path: "/outside/8.jpg"})
         ]
     }
 
