@@ -33,13 +33,13 @@ class ImageTextWarp extends Component {
 
     _getImages() {
         return [
-            this.imagekit.url({path: "/finca/1_NIPBDBcekqbuX.jpg"}),
-            this.imagekit.url({path: "/finca/2_buj-75Pnb2k4.jpg"}),
-            this.imagekit.url({path: "/finca/3_l9HKsShhbmnVF.jpg"}),
-            this.imagekit.url({path: "/finca/7_C4bxuD7cS8Xk.jpg"}),
-            this.imagekit.url({path: "/finca/4_YoP0oHVdoZphA.jpg"}),
-            this.imagekit.url({path: "/finca/5_LCLMLv_8SRZuU.jpg"}),
-            this.imagekit.url({path: "/finca/6_BSev22KpQyksg.jpg"})
+            this.imagekit.url({path: "/finca/1.jpg"}),
+            this.imagekit.url({path: "/finca/2.jpg"}),
+            this.imagekit.url({path: "/finca/3.jpg"}),
+            this.imagekit.url({path: "/finca/7.jpg"}),
+            this.imagekit.url({path: "/finca/4.jpg"}),
+            this.imagekit.url({path: "/finca/5.jpg"}),
+            this.imagekit.url({path: "/finca/6.jpg"})
         ]
     }
 
